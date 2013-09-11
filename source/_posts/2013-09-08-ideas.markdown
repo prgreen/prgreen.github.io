@@ -72,4 +72,5 @@ the maths behind glicko
 being terrible at maths is a terrible handicap for a hacker
 (what's a logarithm? all images with the same number of pixels weigh ~)
 
+go is the ultimate game
 
