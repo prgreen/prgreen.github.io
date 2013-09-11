@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 
-  <title><![CDATA[Category: Math | Professor Green]]></title>
-  <link href="http://prgreen.github.io/blog/categories/math/atom.xml" rel="self"/>
+  <title><![CDATA[Category: Tech | Professor Green]]></title>
+  <link href="http://prgreen.github.io/blog/categories/tech/atom.xml" rel="self"/>
   <link href="http://prgreen.github.io/"/>
   <updated>2013-09-11T08:27:11-07:00</updated>
   <id>http://prgreen.github.io/</id>
@@ -134,106 +134,6 @@
 
 <p>It’s fine to abstract away the implementation details, but only if you know what’s behind them in case you need to know, which happens often with those hard-to-find bugs where you hit a limitation or implementation quirk of the underlying technology.</p>
 
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Perseverance and probability]]></title>
-    <link href="http://prgreen.github.io/blog/2013/09/10/perseverance-and-probability/"/>
-    <updated>2013-09-10T14:47:00-07:00</updated>
-    <id>http://prgreen.github.io/blog/2013/09/10/perseverance-and-probability</id>
-    <content type="html"><![CDATA[<p><strong>Problem: Trying n times something that has a 1 in n chance of success.</strong></p>
-
-<p>For example, n = 2 means having 2 tries to guess the result of a coin flip.</p>
-
-<p>For n = 6, you have 6 tries to guess the result of rolling a standard die.</p>
-
-<p>The probability of success P can also be expressed as “one minus the probability of every try failing”.
-$$
-P(n) = 1 - \Big(1-\frac{1}{n}\Big)^n
-$$</p>
-
-<p>A surprisingly high number of people have a very flawed understanding of probabilities, even with mathematical backgrounds, and will just assume without thinking that P is always 1 or converges towards 1 as n goes to infinity. None of these propositions are true. </p>
-
-<h2 id="what-is-the-limit-as-n-goes-to-infinity">What is the limit as n goes to infinity?</h2>
-
-<p>If you try sufficiently hard something that has a very low chance of success, you will always succeed (your probability of success converges towards 1), so most people would be tempted to say that P converges towards 1. But that’s not the question.</p>
-
-<p>The question is: if you try <em>exactly</em> n times something that has a 1 in n chance of success, and n grows very big, how good are your chances? Let’s call P the probability of success.</p>
-
-<script type="math/tex; mode=display">
-lim_{n\to\infty}P(n) = 1 - lim_{n\to\infty}\Big(1-\frac{1}{n}\Big)^n
-</script>
-
-<p>Numerically if you tried a few values of n you would realize that the right expression converges quickly towards a number that is neither 0 nor 1.</p>
-
-<p>Remembering one of the definitions of <strong>e</strong>, the Euler number:</p>
-
-<script type="math/tex; mode=display">
-e = lim_{n\to\infty}\Big(1+\frac{1}{n}\Big)^n
-</script>
-
-<p>it becomes easy to realize that</p>
-
-<script type="math/tex; mode=display">
-lim_{n\to\infty}P(n) = 1 - e ^{-1} \approx 0.63212
-</script>
-
-<p>A <em>63% chance of success</em> means you’re a winner in the long term if you’re used to <em>trying a million times</em> something that has a <em>one in a million chance</em> of success.</p>
-
-<h2 id="wacky-logic-les-shadoks">Wacky logic: “Les Shadoks”</h2>
-
-<p><img class="center" src="/images/shadok.jpg"></p>
-
-<blockquote>
-  <p>“If there is one in a million chance to succeed, rush failing the 999,999 first tries.”</p>
-</blockquote>
-
-<p>During my childhood in France in the 90s, an old animated TV series from the late 60s called “Les Shadoks” was still running, that had been a significant cultural phenomenon among older generations. I remember it being very funny, and you should definitely check it out on Youtube if you understand French, and are prepared to feel overwhelmed with utter confusion and culture shock. Some of the ridiculously wrong and illogical Shadok mottos are still heard today in France, although since then end of the show less and less people know where they come from (“Pourquoi faire simple quand on peut faire compliqué ?” =&gt; “Why do it the easy way when you can do it the hard way?”).</p>
-
-<p><img class="center" src="/images/shadok2.jpg"></p>
-
-<blockquote>
-  <p>“Better to pump even if nothing happens than to risk something worse happening by not pumping”</p>
-</blockquote>
-
-<p>It had the most bizarre, absurd and eerie stories, and an unhealthy obsession with useless and endless pumping, but more importantly for our current discussion, the Shadoks, stupid and ruthless bird-like creatures, keep dying in atrocious circumstances because of how flawed their “logic” is.</p>
-
-<p>One example that particularly struck me as a child: the Shadoks want to build a rocket to travel from their dysfunctional home planet to the Earth. Their most renowned mathematician calculates that their plan has a one in a million chance of success, then claims that all they have to do is rebuild the same rocket over and over again until it inevitably works when they reach 1 million attempts.</p>
-
-<blockquote>
-  <p>“When one tries continuously, one ends up succeeding. Thus, the more one fails, the greater the chance that it will work.”</p>
-</blockquote>
-
-<p>Even 7 year-old me knew it couldn’t be right (and anyone who understands basic probabilities is warned specifically against this fallacy), but it took me years to figure out the real probability of success.</p>
-
-<p>Approximately 63% is actually a pretty good chance for the Shadoks, given their general incompetence.</p>
-
-<p><img class="center" src="/images/shadok3.jpeg"></p>
-
-<blockquote>
-  <p>The Shadok brain can only memorize 4 words, so they count using a base 4 number system. They were my first introduction to non-decimal bases, at age 7, or BU MEU. </p>
-</blockquote>
-
-<p><img class="center" src="/images/shadok4.gif"></p>
-
-<p>Here’s a link to a video explaining Shadok counting (in French): <a href="http://www.youtube.com/watch?v=nm0cw6b1PMA">Shadok counting</a></p>
-
-<h2 id="applied-probabilities-picking-up-women-or-men">Applied probabilities: picking up women (or men)</h2>
-
-<p>What are the odds that a girl you meet randomly in public agrees immediately to date you? The chances are pretty slim (although you’d be surprised how much blunt honesty works), especially now that I know you’d rather spend your free time reading through my ramblings instead of going outside making friends or something.</p>
-
-<p>But the point is: the chances are small, but non-negligible, let’s say 1%. Ask every woman you meet during the day, in public transportation, on the streets, and more often than not (63% if you ask 100 girls out), you will end up dating someone today with little effort (probably someone really easy or mentally unstable, but that’s your problem now).</p>
-
-<p>No need for sophisticated matching algorithms, loneliness in our contemporary societies is easily solved by brute force<sup id="fnref:1"><a href="#fn:1" rel="footnote">1</a></sup>!</p>
-
-<div class="footnotes">
-  <ol>
-    <li id="fn:1">
-      <p>I am not liable for tragic misunderstandings of this sentence.<a href="#fnref:1" rel="reference">&#8617;</a></p>
-    </li>
-  </ol>
-</div>
 ]]></content>
   </entry>
   
