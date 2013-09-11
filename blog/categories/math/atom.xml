@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 
-  <title><![CDATA[Professor Green]]></title>
-  <link href="http://prgreen.github.io/atom.xml" rel="self"/>
+  <title><![CDATA[Category: Math | Professor Green]]></title>
+  <link href="http://prgreen.github.io/blog/categories/math/atom.xml" rel="self"/>
   <link href="http://prgreen.github.io/"/>
   <updated>2013-09-11T03:55:53-07:00</updated>
   <id>http://prgreen.github.io/</id>
@@ -59,7 +59,7 @@ lim_{n\to\infty}P(n) = 1 - e ^{-1} \approx 0.63212
 
 <h2 id="wacky-logic-les-shadoks">Wacky logic: “Les Shadoks”</h2>
 
-<p><img class="center" src="http://prgreen.github.io/images/shadok.jpg" /></p>
+<p><img class="center" src="/images/shadok.jpg"></p>
 
 <blockquote>
   <p>“If there is one in a million chance to succeed, rush failing the 999,999 first tries.”</p>
@@ -67,7 +67,7 @@ lim_{n\to\infty}P(n) = 1 - e ^{-1} \approx 0.63212
 
 <p>During my childhood in France in the 90s, an old animated TV series from the late 60s called “Les Shadoks” was still running, that had been a significant cultural phenomenon among older generations. I remember it being very funny, and you should definitely check it out on Youtube if you understand French, and are prepared to feel overwhelmed with utter confusion and culture shock. Some of the ridiculously wrong and illogical Shadok mottos are still heard today in France, although since then end of the show less and less people know where they come from (“Pourquoi faire simple quand on peut faire compliqué ?” =&gt; “Why do it the easy way when you can do it the hard way?”).</p>
 
-<p><img class="center" src="http://prgreen.github.io/images/shadok2.jpg" /></p>
+<p><img class="center" src="/images/shadok2.jpg"></p>
 
 <blockquote>
   <p>“Better to pump even if nothing happens than to risk something worse happening by not pumping”</p>
@@ -85,13 +85,13 @@ lim_{n\to\infty}P(n) = 1 - e ^{-1} \approx 0.63212
 
 <p>Approximately 63% is actually a pretty good chance for the Shadoks, given their general incompetence.</p>
 
-<p><img class="center" src="http://prgreen.github.io/images/shadok3.jpeg" /></p>
+<p><img class="center" src="/images/shadok3.jpeg"></p>
 
 <blockquote>
   <p>The Shadok brain can only memorize 4 words, so they count using a base 4 number system. They were my first introduction to non-decimal bases, at age 7, or BU MEU. </p>
 </blockquote>
 
-<p><img class="center" src="http://prgreen.github.io/images/shadok4.gif" /></p>
+<p><img class="center" src="/images/shadok4.gif"></p>
 
 <p>Here’s a link to a video explaining Shadok counting (in French): <a href="http://www.youtube.com/watch?v=nm0cw6b1PMA">Shadok counting</a></p>
 
