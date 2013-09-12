@@ -15,8 +15,14 @@
         <lastmod>2013-09-12T13:42:46-07:00</lastmod>
     </url>
     <url>
+        <loc>
+            http://prgreen.github.io/blog/2013/09/12/speech-is-slowly-becoming-an-obsolete-emergency-only-communication-protocol/
+        </loc>
+        <lastmod>2013-09-12T16:08:36-07:00</lastmod>
+    </url>
+    <url>
         <loc>http://prgreen.github.io/</loc>
-        <lastmod>2013-09-12T13:42:46-07:00</lastmod>
+        <lastmod>2013-09-12T16:08:36-07:00</lastmod>
     </url>
     <url>
         <loc>http://prgreen.github.io/robots.txt</loc>
@@ -24,6 +30,6 @@
     </url>
     <url>
         <loc>http://prgreen.github.io/blog/archives/</loc>
-        <lastmod>2013-09-12T13:42:46-07:00</lastmod>
+        <lastmod>2013-09-12T16:08:36-07:00</lastmod>
     </url>
 </urlset>
