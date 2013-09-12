@@ -3,7 +3,7 @@ layout: post
 title: "True hackers need math"
 date: 2013-09-11 04:26
 comments: true
-categories: 
+categories: [Math, Tech] 
 ---
 
 # (and an intuitive comprehension of what's happening in their code)
