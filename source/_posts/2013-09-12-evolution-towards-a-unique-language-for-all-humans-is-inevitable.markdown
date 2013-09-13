@@ -44,7 +44,7 @@ If this is indeed the evolution of the world, all languages will eventually die 
 
 Just by interacting, you lose your specificity, your idiosyncrasies must be abandoned. I can't speak regional [Picard](http://en.wikipedia.org/wiki/Picard_language) anymore (yes, just like the Star Trek captain, this is not a mere coincidence) when I'm in California, and it's unlikely my future children will ever hear a word of it, while my grandparents used to speak it almost exclusively.
 
-A world where everybody interacts constantly with everyone, like in social media, tends to be more uniform. The French youth watches Breaking Bad. Because it's discussed everywhere on Twitter. The French youth uses the invented frenchized verb "liker" instead of "aimer", for Facebook likes.
+A world where everybody interacts constantly with everyone, like in social media, tends to be more uniform. The French youth watch Breaking Bad. Because it's discussed everywhere on Twitter. The French youth use the invented frenchized verb "liker" instead of "aimer", for Facebook likes.
 
 Emotionally rejected by many, fearful of a George Orwell's dystopian *Newspeak*, a unique language would make (and already makes, since you're reading this blog and you're not necessarily a native English speaker) pragmatic sense.
 
