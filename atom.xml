@@ -4,7 +4,7 @@
   <title><![CDATA[Bill Green]]></title>
   <link href="http://prgreen.github.io/atom.xml" rel="self"/>
   <link href="http://prgreen.github.io/"/>
-  <updated>2013-09-20T11:53:04-07:00</updated>
+  <updated>2013-09-20T11:57:31-07:00</updated>
   <id>http://prgreen.github.io/</id>
   <author>
     <name><![CDATA[Bill Green]]></name>
@@ -234,6 +234,9 @@
   </li>
   <li>
     <p>We could offer the use a choice of cities. Wonder what people are eating in Paris? Connect to World-o-vision at the right time of the day, and you’ll know!</p>
+  </li>
+  <li>
+    <p>We could display the average time between photos. The activity is a lot higher during the day. During the night the same photos will stay for a long time.</p>
   </li>
   <li>
     <p>Elect the most attractive city, based on how liked the tweeted pictures from each city are.</p>
