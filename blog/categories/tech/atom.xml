@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 
-  <title><![CDATA[Category: Tech | Professor Green]]></title>
+  <title><![CDATA[Category: Tech | Bill Green]]></title>
   <link href="http://prgreen.github.io/blog/categories/tech/atom.xml" rel="self"/>
   <link href="http://prgreen.github.io/"/>
-  <updated>2013-09-13T04:07:42-07:00</updated>
+  <updated>2013-09-20T08:05:59-07:00</updated>
   <id>http://prgreen.github.io/</id>
   <author>
-    <name><![CDATA[Professor Green]]></name>
+    <name><![CDATA[Bill Green]]></name>
     
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
@@ -40,12 +40,14 @@
 
 <h2 id="whats-next">What’s next?</h2>
 
-<p>Twitter is not just about individual micro-blogging anymore. It can simply be used as a generic platform for communication between companies and the masses.</p>
+<p>Twitter is not just about individual micro-blogging anymore, especially with the introduction of premium accounts. It can simply be used as a generic platform for communication between companies/celebrities/gurus/content producers and the masses.</p>
 
-<p>With the Twitter API, it’s easy to imagine infinitely many new use cases, based on “practical hashtags”, that can be used for customers to place orders when they send tweets to a specific company bot account.</p>
+<p>Companies want the publicity and feedback, masses want to be informed on the new products, make suggestions, and eventually buy stuff.</p>
+
+<p>With the Twitter API, it’s easy to imagine infinitely many new use cases, based on “practical hashtags”, that can be used by customers to place orders when they send tweets to a specific company bot account.</p>
 
 <p>Have order-by-tweet pizzerias. You send them your address once, then you place your orders when you want. A tweet is easier and more explicit than a phone call.
-It has an associated timestamp and undeniable source, so you can check delivery speed claims, and there can be no ambiguity or shenanigans about who ordered what.</p>
+It has an associated timestamp and undeniable source, so you can check delivery speed claims, and there can be no ambiguity or shenanigans about who ordered what. With geolocalization added, you could be sitting on a park bench and still have your pizza delivered to you.</p>
 
 <p>Of course, as of today, modern society assumes pretty much everyone has a phone, but you can’t assume everyone has a smartphone, or a Twitter account or knows how to use it or wants to. But the expectations of what is normal or not are shifting. In the future tweeting could be a ubiquitous activity any human being is assumed to be able to do, for a variety of purposes, like selecting entrees at a restaurant without the need to ever talk to a waiter (because you see, in the future people are all rendered socially awkward by all the time spent on their smartphones and computers). The telephone was widely adopted because of its practicality, and if Twitter can achieve the same level of practicality in its own domain, we can expect the same success in future generations.</p>
 
@@ -53,9 +55,9 @@ It has an associated timestamp and undeniable source, so you can check delivery 
 
 <p>You can have social events with people voting by tweet instead of SMS (but hey, TV shows need the money).</p>
 
-<p>If people have more incentives to tweet (I mean, more than social validation), if their tweet can trigger complex processes with more visible consequences, they will obviously tweet more and more people will tweet.</p>
+<p>If people have more incentives to tweet (I mean, more than social validation, tweets can get you stuff), if their tweet can trigger complex processes with more visible consequences, they will obviously tweet more and more people will tweet, all of which benefits Twitter.</p>
 
-<p>Tweets in the future could be used in any verifiable transaction. Despite the outrage it would cause, Twitter might eventually offer <em>all</em> their users the possibility to confirm their real identity, because the possible applications are endless, from voting in elections to money transactions (now you have your viable business model, guys).</p>
+<p>Tweets in the future could be used as a way to trigger any verifiable transaction. Despite the outrage it would cause, Twitter might eventually offer <em>all</em> their users the possibility to confirm their real identity, because the possible applications are endless, from voting in elections to money transactions (now you have your viable business model, guys).</p>
 
 ]]></content>
   </entry>

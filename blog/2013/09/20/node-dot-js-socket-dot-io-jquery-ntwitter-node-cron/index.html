@@ -1,0 +1,495 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>Node.js, socket.io, jQuery, ntwitter, node-cron - Bill Green</title>
+  <meta name="author" content="Bill Green">
+
+  
+  <meta name="description" content="The most commonly advertised strengths of Node are: Performance: Improved throughput and better latency in typical cases where the database queries &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://prgreen.github.io/blog/2013/09/20/node-dot-js-socket-dot-io-jquery-ntwitter-node-cron">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <link href="/atom.xml" rel="alternate" title="Bill Green" type="application/atom+xml">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script>!window.jQuery && document.write(unescape('%3Cscript src="./javascripts/lib/jquery.min.js"%3E%3C/script%3E'))</script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+
+  
+  <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-43972664-1']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+  </script>
+
+
+</head>
+
+<body   >
+  <header role="banner"><hgroup>
+  <h1><a href="/">Bill Green</a></h1>
+  
+    <h2>Extracting meaning</h2>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="http://google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:prgreen.github.io" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/">Blog</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+  <li><a href="/about-me">About me</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div>
+<article class="hentry" role="article">
+  
+  <header>
+    
+      <h1 class="entry-title">Node.js, socket.io, jQuery, ntwitter, node-cron</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-09-20T06:29:00-07:00" pubdate data-updated="true">Sep 20<span>th</span>, 2013</time>
+        
+         | <a href="#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+<div class="entry-content"><p>The most commonly advertised strengths of <a href="http://nodejs.org/">Node</a> are:</p>
+
+<ul>
+  <li><strong>Performance</strong>: Improved throughput and better latency in typical cases where the database queries are the limiting performance factor (not CPU).</li>
+  <li><strong>Scalability</strong>: Solving the C10K problem by using optimized OS-specific network interfaces (epoll/kqueue, IOCP).</li>
+  <li><strong>Productivity</strong>: The node module ecosystem will provide immediately usable solutions for most of your needs, allowing a very short time to market, or fast prototyping. Javascript as a server language is a debatable but pragmatic choice, since everyone already knows it, and JSON apis or communication with clients are made trivial.</li>
+  <li><strong>Socket.io</strong>: Undoubtedly one of the “killer features”, allows for impressive realtime one-page web apps that can compete with regular native software, without the hassles of deployment or cross-platform compatibility (the browser takes care of that).</li>
+</ul>
+
+<p>The one strength that draws me back to node regularly is the productivity boost. It would be possible to use alternatives like Python and <a href="http://www.gevent.org/">gevent</a>, with <a href="http://www.gelens.org/code/gevent-websocket/">gevent-websocket</a>, with a micro-framework like <a href="http://flask.pocoo.org/">Flask</a>. The parts feel more disconnected and pip is not as dead simple as npm, so deployment will always be harder than just “npm install”, but Python is arguably a more comfortable language, and the coroutine approach has a shorter learning curve than node’s callback nesting. People who like Ruby could probably argue that Ruby on Rails can achieve comparable results, despite falling somewhat out of fashion these last few years.</p>
+
+<p>You can have an <strong>idea</strong>, and implement a <strong>working prototype</strong> in no time (whether the prototype can scale as advertised without careful planning is another more controversial story).</p>
+
+<p>Imagine the following idea:</p>
+
+<blockquote>
+  <p>I want a website where I can watch tweeted pictures of a city in realtime.</p>
+</blockquote>
+
+<p>We’ll take San Francisco for our example, but any location in the world is possible. </p>
+
+<h2 id="an-example-project-world-o-vision">An example project: “World-o-vision”</h2>
+
+<p>I assume the reader has at least basic familiarity with Node, underscore.js, and socket.io.</p>
+
+<p>We’ll use this fantastic <a href="http://www.dillonbuchanan.com/programming/node-js-twitter-streaming-api-socket-io-twitter-cashtag-heatmap/">blog article</a> to bootstrap our code.</p>
+
+<p>The whole code will soon be available from a GitHub repository, for now I’ll explain the highlights.</p>
+
+<p>We’ll use <a href="http://expressjs.com/">express</a> as our web application framework of choice, for convenience, although we only have one route (it’s a one page web app).</p>
+
+<p>We’ll use <a href="https://dev.twitter.com/docs/streaming-apis">Twitter streaming API</a> (version 1.1). The awesome <a href="https://github.com/AvianFlu/ntwitter">ntwitter</a> node module makes it easier to use Twitter API from Node.</p>
+
+<p><strong>You will need your own Twitter keys to make this work, since every account is limited to one connection.</strong></p>
+
+<div class="bogus-wrapper"><notextile><figure class="code"><figcaption><span>app.js</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
+<span class="line-number">2</span>
+<span class="line-number">3</span>
+<span class="line-number">4</span>
+<span class="line-number">5</span>
+<span class="line-number">6</span>
+<span class="line-number">7</span>
+<span class="line-number">8</span>
+<span class="line-number">9</span>
+<span class="line-number">10</span>
+<span class="line-number">11</span>
+<span class="line-number">12</span>
+<span class="line-number">13</span>
+<span class="line-number">14</span>
+<span class="line-number">15</span>
+<span class="line-number">16</span>
+<span class="line-number">17</span>
+<span class="line-number">18</span>
+<span class="line-number">19</span>
+<span class="line-number">20</span>
+<span class="line-number">21</span>
+<span class="line-number">22</span>
+<span class="line-number">23</span>
+<span class="line-number">24</span>
+<span class="line-number">25</span>
+<span class="line-number">26</span>
+<span class="line-number">27</span>
+<span class="line-number">28</span>
+<span class="line-number">29</span>
+<span class="line-number">30</span>
+<span class="line-number">31</span>
+<span class="line-number">32</span>
+<span class="line-number">33</span>
+<span class="line-number">34</span>
+<span class="line-number">35</span>
+<span class="line-number">36</span>
+<span class="line-number">37</span>
+</pre></td><td class="code"><pre><code class="javascript"><span class="line"><span class="c1">//After node configuration...</span>
+</span><span class="line">
+</span><span class="line"><span class="kd">var</span> <span class="nx">NPICS</span> <span class="o">=</span> <span class="mi">10</span><span class="p">;</span>
+</span><span class="line"><span class="kd">var</span> <span class="nx">picList</span> <span class="o">=</span> <span class="p">[];</span>
+</span><span class="line">
+</span><span class="line"><span class="c1">// routes</span>
+</span><span class="line"><span class="nx">app</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">&#39;/&#39;</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">req</span><span class="p">,</span> <span class="nx">res</span><span class="p">)</span> <span class="p">{</span>
+</span><span class="line">    <span class="nx">res</span><span class="p">.</span><span class="nx">render</span><span class="p">(</span><span class="s1">&#39;index&#39;</span><span class="p">,</span> <span class="p">{</span> <span class="nx">data</span><span class="o">:</span> <span class="nx">picList</span> <span class="p">});</span>
+</span><span class="line"><span class="p">});</span>
+</span><span class="line">
+</span><span class="line"><span class="c1">// socket.io server</span>
+</span><span class="line"><span class="kd">var</span> <span class="nx">sio</span> <span class="o">=</span> <span class="nx">io</span><span class="p">.</span><span class="nx">listen</span><span class="p">(</span><span class="nx">server</span><span class="p">);</span>
+</span><span class="line">
+</span><span class="line"><span class="nx">sio</span><span class="p">.</span><span class="nx">sockets</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s1">&#39;connection&#39;</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">socket</span><span class="p">)</span> <span class="p">{</span>
+</span><span class="line">    <span class="nx">socket</span><span class="p">.</span><span class="nx">emit</span><span class="p">(</span><span class="s1">&#39;data&#39;</span><span class="p">,</span> <span class="nx">_</span><span class="p">.</span><span class="nx">last</span><span class="p">(</span><span class="nx">picList</span><span class="p">,</span> <span class="nx">NPICS</span><span class="p">));</span>
+</span><span class="line"><span class="p">});</span>
+</span><span class="line">
+</span><span class="line"><span class="c1">// twitter streamer</span>
+</span><span class="line"><span class="kd">var</span> <span class="nx">t</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">twitter</span><span class="p">({</span>
+</span><span class="line">    <span class="nx">consumer_key</span><span class="o">:</span> <span class="s1">&#39;USE_YOUR_OWN&#39;</span><span class="p">,</span>
+</span><span class="line">    <span class="nx">consumer_secret</span><span class="o">:</span> <span class="s1">&#39;USE_YOUR_OWN&#39;</span><span class="p">,</span>
+</span><span class="line">    <span class="nx">access_token_key</span><span class="o">:</span> <span class="s1">&#39;USE_YOUR_OWN&#39;</span><span class="p">,</span>
+</span><span class="line">    <span class="nx">access_token_secret</span><span class="o">:</span> <span class="s1">&#39;USE_YOUR_OWN&#39;</span>
+</span><span class="line"><span class="p">});</span>
+</span><span class="line">
+</span><span class="line"><span class="nx">t</span><span class="p">.</span><span class="nx">stream</span><span class="p">(</span><span class="s1">&#39;statuses/filter&#39;</span><span class="p">,</span> <span class="p">{</span> <span class="nx">locations</span> <span class="o">:</span> <span class="s1">&#39;-122.75,36.8,-121.75,37.8&#39;</span> <span class="p">},</span> <span class="kd">function</span><span class="p">(</span><span class="nx">stream</span><span class="p">)</span> <span class="p">{</span>
+</span><span class="line">  <span class="nx">stream</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s1">&#39;data&#39;</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">tweet</span><span class="p">)</span> <span class="p">{</span>
+</span><span class="line">    <span class="k">if</span> <span class="p">(</span><span class="nx">tweet</span><span class="p">.</span><span class="nx">text</span> <span class="o">!==</span> <span class="kc">undefined</span><span class="p">)</span> <span class="p">{</span>
+</span><span class="line">        <span class="c1">//console.log(tweet.text+&#39;\n&#39;);</span>
+</span><span class="line">        <span class="k">if</span> <span class="p">(</span><span class="nx">tweet</span><span class="p">.</span><span class="nx">entities</span> <span class="o">!=</span> <span class="kc">undefined</span> <span class="o">&amp;&amp;</span> <span class="nx">tweet</span><span class="p">.</span><span class="nx">entities</span><span class="p">.</span><span class="nx">media</span> <span class="o">!=</span> <span class="kc">undefined</span> <span class="o">&amp;&amp;</span> <span class="nx">tweet</span><span class="p">.</span><span class="nx">entities</span><span class="p">.</span><span class="nx">media</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="nx">media_url</span> <span class="o">!=</span> <span class="kc">undefined</span><span class="p">)</span> <span class="p">{</span>
+</span><span class="line">            <span class="nx">picList</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">tweet</span><span class="p">.</span><span class="nx">entities</span><span class="p">.</span><span class="nx">media</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="nx">media_url</span><span class="p">);</span>
+</span><span class="line">            <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">picList</span><span class="p">.</span><span class="nx">length</span><span class="p">);</span>
+</span><span class="line">            <span class="nx">sio</span><span class="p">.</span><span class="nx">sockets</span><span class="p">.</span><span class="nx">emit</span><span class="p">(</span><span class="s1">&#39;data&#39;</span><span class="p">,</span> <span class="nx">_</span><span class="p">.</span><span class="nx">last</span><span class="p">(</span><span class="nx">picList</span><span class="p">));</span>
+</span><span class="line">        <span class="p">}</span>
+</span><span class="line">      <span class="p">}</span>
+</span><span class="line">    <span class="p">});</span>
+</span><span class="line"><span class="p">});</span>
+</span></code></pre></td></tr></table></div></figure></notextile></div>
+
+<p>The node server will connect to the Twitter streaming API, filter tweets by location (San Francisco in our example), add <strong>all links to tweeted photos in a list</strong>, and send either the last (more recent) 10 elements of the list (first update) or the individual elements (in subsequent realtime updates) to the client.</p>
+
+<p>We limit ourselves to 10 pictures to avoid straining the browser too much. On the server side though, we could save all photo links regularly to a database, if we wanted.</p>
+
+<p>For now we’ll use this problem as an excuse to use the lovely node-cron module, and we’ll ask the list to be emptied every 20 minutes:</p>
+
+<div class="bogus-wrapper"><notextile><figure class="code"><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
+<span class="line-number">2</span>
+<span class="line-number">3</span>
+</pre></td><td class="code"><pre><code class="javascript"><span class="line"><span class="k">new</span> <span class="nx">cronJob</span><span class="p">(</span><span class="s1">&#39;0 */20 * * * *&#39;</span><span class="p">,</span> <span class="kd">function</span><span class="p">(){</span>
+</span><span class="line">    <span class="nx">picList</span> <span class="o">=</span> <span class="p">[];</span>
+</span><span class="line">    <span class="p">},</span> <span class="kc">null</span><span class="p">,</span> <span class="kc">true</span><span class="p">);</span>
+</span></code></pre></td></tr></table></div></figure></notextile></div>
+
+<p>We can devise a simple design for a client:</p>
+
+<ul>
+  <li>display 9 pictures as thumbnails in a row, clicking a thumbnail opens the picture in another tab or window, in its original size</li>
+  <li>display one large picture underneath (the last received)</li>
+</ul>
+
+<p>The client-side javascript can be quickly hacked together with a simple jade template:</p>
+
+<div class="bogus-wrapper"><notextile><figure class="code"><figcaption><span>worldovision.js</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
+<span class="line-number">2</span>
+<span class="line-number">3</span>
+<span class="line-number">4</span>
+<span class="line-number">5</span>
+<span class="line-number">6</span>
+<span class="line-number">7</span>
+<span class="line-number">8</span>
+<span class="line-number">9</span>
+<span class="line-number">10</span>
+<span class="line-number">11</span>
+<span class="line-number">12</span>
+<span class="line-number">13</span>
+<span class="line-number">14</span>
+<span class="line-number">15</span>
+<span class="line-number">16</span>
+<span class="line-number">17</span>
+<span class="line-number">18</span>
+<span class="line-number">19</span>
+<span class="line-number">20</span>
+<span class="line-number">21</span>
+<span class="line-number">22</span>
+<span class="line-number">23</span>
+<span class="line-number">24</span>
+<span class="line-number">25</span>
+<span class="line-number">26</span>
+<span class="line-number">27</span>
+</pre></td><td class="code"><pre><code class="javascript"><span class="line"><span class="nx">$</span><span class="p">(</span><span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+</span><span class="line">    <span class="kd">var</span> <span class="nx">socket</span> <span class="o">=</span> <span class="nx">io</span><span class="p">.</span><span class="nx">connect</span><span class="p">(</span><span class="nb">window</span><span class="p">.</span><span class="nx">location</span><span class="p">.</span><span class="nx">hostname</span><span class="p">);</span>
+</span><span class="line">
+</span><span class="line">    <span class="kd">var</span> <span class="nx">picList</span> <span class="o">=</span> <span class="p">[];</span>
+</span><span class="line">    <span class="kd">var</span> <span class="nx">NBPICS</span> <span class="o">=</span> <span class="mi">8</span><span class="p">;</span>
+</span><span class="line">
+</span><span class="line">    <span class="kd">function</span> <span class="nx">updatePics</span><span class="p">()</span> <span class="p">{</span>
+</span><span class="line">      <span class="nx">$</span><span class="p">(</span><span class="s1">&#39;#pictures&#39;</span><span class="p">).</span><span class="nx">html</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="p">);</span>
+</span><span class="line">      <span class="k">for</span> <span class="p">(</span><span class="kd">var</span> <span class="nx">i</span><span class="o">=</span><span class="mi">0</span> <span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="nx">picList</span><span class="p">.</span><span class="nx">length</span><span class="o">-</span><span class="mi">1</span> <span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+</span><span class="line">        <span class="nx">$</span><span class="p">(</span><span class="s1">&#39;#pictures&#39;</span><span class="p">).</span><span class="nx">append</span><span class="p">(</span><span class="s1">&#39;&lt;a href=&quot;&#39;</span> <span class="o">+</span> <span class="nx">picList</span><span class="p">[</span><span class="nx">i</span><span class="p">]</span> <span class="o">+</span> <span class="s1">&#39;:large&quot; target=&quot;_blank&quot;&gt;&lt;img src=&quot;&#39;</span> <span class="o">+</span> <span class="nx">picList</span><span class="p">[</span><span class="nx">i</span><span class="p">]</span> <span class="o">+</span> <span class="s1">&#39;:thumb&quot;&gt;&lt;/a&gt;&#39;</span><span class="p">);</span>
+</span><span class="line">      <span class="p">}</span>
+</span><span class="line">      <span class="nx">$</span><span class="p">(</span><span class="s1">&#39;#big-picture&#39;</span><span class="p">).</span><span class="nx">html</span><span class="p">(</span><span class="s1">&#39;&lt;img src=&quot;&#39;</span> <span class="o">+</span> <span class="nx">picList</span><span class="p">[</span><span class="nx">picList</span><span class="p">.</span><span class="nx">length</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="s1">&#39;:large&quot;&gt;&#39;</span><span class="p">);</span>
+</span><span class="line">    <span class="p">}</span>
+</span><span class="line">
+</span><span class="line">    <span class="nx">socket</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s1">&#39;data&#39;</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">data</span><span class="p">)</span> <span class="p">{</span>
+</span><span class="line">        <span class="k">if</span><span class="p">(</span><span class="nx">data</span> <span class="k">instanceof</span> <span class="nb">Array</span><span class="p">)</span> <span class="p">{</span>
+</span><span class="line">            <span class="nx">picList</span> <span class="o">=</span> <span class="nx">data</span><span class="p">;</span>
+</span><span class="line">            <span class="nx">picList</span><span class="p">.</span><span class="nx">splice</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nx">picList</span><span class="p">.</span><span class="nx">length</span> <span class="o">-</span> <span class="nx">NBPICS</span><span class="p">);</span>
+</span><span class="line">        <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+</span><span class="line">            <span class="k">if</span> <span class="p">(</span><span class="nx">picList</span><span class="p">.</span><span class="nx">length</span> <span class="o">&gt;=</span> <span class="nx">NBPICS</span><span class="p">)</span> <span class="p">{</span>
+</span><span class="line">                <span class="nx">picList</span><span class="p">.</span><span class="nx">splice</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">);</span> <span class="c1">//remove first element</span>
+</span><span class="line">            <span class="p">}</span>
+</span><span class="line">            <span class="nx">picList</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">data</span><span class="p">);</span>
+</span><span class="line">        <span class="p">}</span>
+</span><span class="line">       <span class="nx">updatePics</span><span class="p">();</span>
+</span><span class="line">    <span class="p">});</span>
+</span><span class="line"><span class="p">});</span>
+</span></code></pre></td></tr></table></div></figure></notextile></div>
+
+<div class="bogus-wrapper"><notextile><figure class="code"><figcaption><span>index.jade</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
+<span class="line-number">2</span>
+<span class="line-number">3</span>
+<span class="line-number">4</span>
+<span class="line-number">5</span>
+</pre></td><td class="code"><pre><code class="jade"><span class="line"><span class="nt">extends</span> layout
+</span><span class="line">
+</span><span class="line"><span class="nt">block</span> content
+</span><span class="line">  <span class="nf">#pictures</span>
+</span><span class="line">  <span class="nf">#big-picture</span>
+</span></code></pre></td></tr></table></div></figure></notextile></div>
+
+<p>Although jQuery makes DOM manipulation easy and solves our problem, it’s worth noting that AngularJS components are usually the best long-term solution with a more correct level of abstraction.</p>
+
+<p>The result can be observed here (available soon).</p>
+
+<p>All the photos are realtime tweeted pictures from San Francisco!</p>
+
+<p>All that can be coded and presented as a prototype, in less time than it took me to write this article!</p>
+
+<h2 id="possibilities-for-future-evolutions">Possibilities for future evolutions</h2>
+
+<ul>
+  <li>
+    <p>We could add more interaction with the users by asking them to mark their favorite pictures. At the end of every day, we select the most liked pictures, more deserving of representing the city they originate from.</p>
+  </li>
+  <li>
+    <p>We could offer the use a choice of cities. Wonder what people are eating in Paris? Connect to World-o-vision at the right time of the day, and you’ll know!</p>
+  </li>
+  <li>
+    <p>Elect the most attractive city, based on how liked the tweeted pictures from each city are.</p>
+  </li>
+  <li>
+    <p>Have various sources of photos to inject in our application, for example using the Instagram API.</p>
+  </li>
+</ul>
+</div>
+
+
+  <footer>
+    <p class="meta">
+      
+  
+
+<span class="byline author vcard">Posted by <span class="fn">Bill Green</span></span>
+
+      
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-09-20T06:29:00-07:00" pubdate data-updated="true">Sep 20<span>th</span>, 2013</time>
+      
+
+<span class="categories">
+  
+    <a class='category' href='/blog/categories/programming/'>Programming</a>
+  
+</span>
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  <a href="//twitter.com/share" class="twitter-share-button" data-url="http://prgreen.github.io/blog/2013/09/20/node-dot-js-socket-dot-io-jquery-ntwitter-node-cron/" data-via="" data-counturl="http://prgreen.github.io/blog/2013/09/20/node-dot-js-socket-dot-io-jquery-ntwitter-node-cron/" >Tweet</a>
+  
+  
+  
+</div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/blog/2013/09/13/twitter-use-cases-are-infinite/" title="Previous Post: Twitter use cases are infinite">&laquo; Twitter use cases are infinite</a>
+      
+      
+    </p>
+  </footer>
+</article>
+
+  <section>
+    <h1>Comments</h1>
+    <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+  </section>
+
+</div>
+
+<aside class="sidebar">
+  
+    <section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2013/09/20/node-dot-js-socket-dot-io-jquery-ntwitter-node-cron/">Node.js, socket.io, jQuery, ntwitter, node-cron</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2013/09/13/twitter-use-cases-are-infinite/">Twitter use cases are infinite</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2013/09/13/vine-is-the-new-haiku/">Vine is the new haiku</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2013/09/12/speech-is-slowly-becoming-an-obsolete-emergency-only-communication-protocol/">Speech is slowly becoming an obsolete emergency-only communication protocol</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2013/09/12/evolution-towards-a-unique-language-for-all-humans-is-inevitable/">Evolution towards a unique language for all humans is inevitable</a>
+      </li>
+    
+  </ul>
+</section>
+
+
+
+
+
+  
+</aside>
+
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2013 - Bill Green -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+</footer>
+  
+
+<script type="text/javascript">
+      var disqus_shortname = 'prgreenblog';
+      
+        
+        // var disqus_developer = 1;
+        var disqus_identifier = 'http://prgreen.github.io/blog/2013/09/20/node-dot-js-socket-dot-io-jquery-ntwitter-node-cron/';
+        var disqus_url = 'http://prgreen.github.io/blog/2013/09/20/node-dot-js-socket-dot-io-jquery-ntwitter-node-cron/';
+        var disqus_script = 'embed.js';
+      
+    (function () {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = 'http://' + disqus_shortname + '.disqus.com/' + disqus_script;
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+
+
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = '//platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+
+</body>
+<!-- mathjax config similar to math.stackexchange -->
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  jax: ["input/TeX", "output/HTML-CSS"],
+  tex2jax: {
+    inlineMath: [ ['$', '$'] ],
+    displayMath: [ ['$$', '$$']],
+    processEscapes: true,
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+  },
+  messageStyle: "none",
+  "HTML-CSS": { preferredFont: "TeX", availableFonts: ["STIX","TeX"] }
+});
+</script>
+<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML" type="text/javascript"></script>
+
+</html>

@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 
-  <title><![CDATA[Category: Math | Professor Green]]></title>
+  <title><![CDATA[Category: Math | Bill Green]]></title>
   <link href="http://prgreen.github.io/blog/categories/math/atom.xml" rel="self"/>
   <link href="http://prgreen.github.io/"/>
-  <updated>2013-09-13T04:07:42-07:00</updated>
+  <updated>2013-09-20T08:05:59-07:00</updated>
   <id>http://prgreen.github.io/</id>
   <author>
-    <name><![CDATA[Professor Green]]></name>
+    <name><![CDATA[Bill Green]]></name>
     
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>

@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: Programming | Bill Green]]></title>
+  <link href="http://prgreen.github.io/blog/categories/programming/atom.xml" rel="self"/>
+  <link href="http://prgreen.github.io/"/>
+  <updated>2013-09-20T08:05:59-07:00</updated>
+  <id>http://prgreen.github.io/</id>
+  <author>
+    <name><![CDATA[Bill Green]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Node.js, socket.io, jQuery, ntwitter, node-cron]]></title>
+    <link href="http://prgreen.github.io/blog/2013/09/20/node-dot-js-socket-dot-io-jquery-ntwitter-node-cron/"/>
+    <updated>2013-09-20T06:29:00-07:00</updated>
+    <id>http://prgreen.github.io/blog/2013/09/20/node-dot-js-socket-dot-io-jquery-ntwitter-node-cron</id>
+    <content type="html"><![CDATA[<p>The most commonly advertised strengths of <a href="http://nodejs.org/">Node</a> are:</p>
+
+<ul>
+  <li><strong>Performance</strong>: Improved throughput and better latency in typical cases where the database queries are the limiting performance factor (not CPU).</li>
+  <li><strong>Scalability</strong>: Solving the C10K problem by using optimized OS-specific network interfaces (epoll/kqueue, IOCP).</li>
+  <li><strong>Productivity</strong>: The node module ecosystem will provide immediately usable solutions for most of your needs, allowing a very short time to market, or fast prototyping. Javascript as a server language is a debatable but pragmatic choice, since everyone already knows it, and JSON apis or communication with clients are made trivial.</li>
+  <li><strong>Socket.io</strong>: Undoubtedly one of the “killer features”, allows for impressive realtime one-page web apps that can compete with regular native software, without the hassles of deployment or cross-platform compatibility (the browser takes care of that).</li>
+</ul>
+
+<p>The one strength that draws me back to node regularly is the productivity boost. It would be possible to use alternatives like Python and <a href="http://www.gevent.org/">gevent</a>, with <a href="http://www.gelens.org/code/gevent-websocket/">gevent-websocket</a>, with a micro-framework like <a href="http://flask.pocoo.org/">Flask</a>. The parts feel more disconnected and pip is not as dead simple as npm, so deployment will always be harder than just “npm install”, but Python is arguably a more comfortable language, and the coroutine approach has a shorter learning curve than node’s callback nesting. People who like Ruby could probably argue that Ruby on Rails can achieve comparable results, despite falling somewhat out of fashion these last few years.</p>
+
+<p>You can have an <strong>idea</strong>, and implement a <strong>working prototype</strong> in no time (whether the prototype can scale as advertised without careful planning is another more controversial story).</p>
+
+<p>Imagine the following idea:</p>
+
+<blockquote>
+  <p>I want a website where I can watch tweeted pictures of a city in realtime.</p>
+</blockquote>
+
+<p>We’ll take San Francisco for our example, but any location in the world is possible. </p>
+
+<h2 id="an-example-project-world-o-vision">An example project: “World-o-vision”</h2>
+
+<p>I assume the reader has at least basic familiarity with Node, underscore.js, and socket.io.</p>
+
+<p>We’ll use this fantastic <a href="http://www.dillonbuchanan.com/programming/node-js-twitter-streaming-api-socket-io-twitter-cashtag-heatmap/">blog article</a> to bootstrap our code.</p>
+
+<p>The whole code will soon be available from a GitHub repository, for now I’ll explain the highlights.</p>
+
+<p>We’ll use <a href="http://expressjs.com/">express</a> as our web application framework of choice, for convenience, although we only have one route (it’s a one page web app).</p>
+
+<p>We’ll use <a href="https://dev.twitter.com/docs/streaming-apis">Twitter streaming API</a> (version 1.1). The awesome <a href="https://github.com/AvianFlu/ntwitter">ntwitter</a> node module makes it easier to use Twitter API from Node.</p>
+
+<p><strong>You will need your own Twitter keys to make this work, since every account is limited to one connection.</strong></p>
+
+<p>``` javascript app.js
+//After node configuration…</p>
+
+<p>var NPICS = 10;
+var picList = [];</p>
+
+<p>// routes
+app.get(‘/’, function(req, res) {
+    res.render(‘index’, { data: picList });
+});</p>
+
+<p>// socket.io server
+var sio = io.listen(server);</p>
+
+<p>sio.sockets.on(‘connection’, function(socket) { 
+    socket.emit(‘data’, _.last(picList, NPICS));
+});</p>
+
+<p>// twitter streamer
+var t = new twitter({
+    consumer_key: ‘USE_YOUR_OWN’,         <br />
+    consumer_secret: ‘USE_YOUR_OWN’,      <br />
+    access_token_key: ‘USE_YOUR_OWN’, 
+    access_token_secret: ‘USE_YOUR_OWN’
+});</p>
+
+<p>t.stream(‘statuses/filter’, { locations : ‘-122.75,36.8,-121.75,37.8’ }, function(stream) {
+  stream.on(‘data’, function(tweet) {
+    if (tweet.text !== undefined) {
+        //console.log(tweet.text+’\n’);
+        if (tweet.entities != undefined &amp;&amp; tweet.entities.media != undefined &amp;&amp; tweet.entities.media[0].media_url != undefined) {
+            picList.push(tweet.entities.media[0].media_url);
+            console.log(picList.length);
+            sio.sockets.emit(‘data’, _.last(picList));
+        }
+      }
+    });
+});</p>
+
+<p>```</p>
+
+<p>The node server will connect to the Twitter streaming API, filter tweets by location (San Francisco in our example), add <strong>all links to tweeted photos in a list</strong>, and send either the last (more recent) 10 elements of the list (first update) or the individual elements (in subsequent realtime updates) to the client.</p>
+
+<p>We limit ourselves to 10 pictures to avoid straining the browser too much. On the server side though, we could save all photo links regularly to a database, if we wanted.</p>
+
+<p>For now we’ll use this problem as an excuse to use the lovely node-cron module, and we’ll ask the list to be emptied every 20 minutes:</p>
+
+<p><code>javascript
+new cronJob('0 */20 * * * *', function(){
+    picList = [];
+    }, null, true);
+</code></p>
+
+<p>We can devise a simple design for a client:</p>
+
+<ul>
+  <li>display 9 pictures as thumbnails in a row, clicking a thumbnail opens the picture in another tab or window, in its original size</li>
+  <li>display one large picture underneath (the last received)</li>
+</ul>
+
+<p>The client-side javascript can be quickly hacked together with a simple jade template:</p>
+
+<p>``` javascript worldovision.js
+$(function() {
+    var socket = io.connect(window.location.hostname);</p>
+
+<pre><code>var picList = [];
+var NBPICS = 8;
+
+function updatePics() {
+  $('#pictures').html('');
+  for (var i=0 ; i &lt; picList.length-1 ; i++) {
+    $('#pictures').append('&lt;a href="' + picList[i] + ':large" target="_blank"&gt;&lt;img src="' + picList[i] + ':thumb"&gt;&lt;/a&gt;');
+  }
+  $('#big-picture').html('&lt;img src="' + picList[picList.length-1] + ':large"&gt;');
+}
+
+socket.on('data', function(data) {
+    if(data instanceof Array) {
+        picList = data;
+        picList.splice(0, picList.length - NBPICS);
+    } else {
+        if (picList.length &gt;= NBPICS) {
+            picList.splice(0, 1); //remove first element
+        }
+        picList.push(data);
+    }
+   updatePics();
+}); }); ```
+</code></pre>
+
+<p>``` jade index.jade
+extends layout</p>
+
+<p>block content
+  #pictures
+  #big-picture
+```</p>
+
+<p>Although jQuery makes DOM manipulation easy and solves our problem, it’s worth noting that AngularJS components are usually the best long-term solution with a more correct level of abstraction.</p>
+
+<p>The result can be observed here (available soon).</p>
+
+<p>All the photos are realtime tweeted pictures from San Francisco!</p>
+
+<p>All that can be coded and presented as a prototype, in less time than it took me to write this article!</p>
+
+<h2 id="possibilities-for-future-evolutions">Possibilities for future evolutions</h2>
+
+<ul>
+  <li>
+    <p>We could add more interaction with the users by asking them to mark their favorite pictures. At the end of every day, we select the most liked pictures, more deserving of representing the city they originate from.</p>
+  </li>
+  <li>
+    <p>We could offer the use a choice of cities. Wonder what people are eating in Paris? Connect to World-o-vision at the right time of the day, and you’ll know!</p>
+  </li>
+  <li>
+    <p>Elect the most attractive city, based on how liked the tweeted pictures from each city are.</p>
+  </li>
+  <li>
+    <p>Have various sources of photos to inject in our application, for example using the Instagram API.</p>
+  </li>
+</ul>
+]]></content>
+  </entry>
+  
+</feed>
