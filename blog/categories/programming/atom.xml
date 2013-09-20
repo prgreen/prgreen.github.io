@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Programming | Bill Green]]></title>
   <link href="http://prgreen.github.io/blog/categories/programming/atom.xml" rel="self"/>
   <link href="http://prgreen.github.io/"/>
-  <updated>2013-09-20T11:35:11-07:00</updated>
+  <updated>2013-09-20T11:43:57-07:00</updated>
   <id>http://prgreen.github.io/</id>
   <author>
     <name><![CDATA[Bill Green]]></name>
@@ -96,7 +96,7 @@ var t = new twitter({
 
 <p>We limit ourselves to 10 pictures to avoid straining the browser too much. On the server side though, we could save all photo links regularly to a database, if we wanted.</p>
 
-<p>For now we’ll use this problem as an excuse to use the lovely node-cron module, and we’ll ask the list to be emptied every 20 minutes:</p>
+<p>For now we’ll use this problem as an excuse to use the lovely node-cron module, and we’ll ask for the list to simply be emptied every 20 minutes:</p>
 
 <p><code>javascript
 new cronJob('0 */20 * * * *', function(){
