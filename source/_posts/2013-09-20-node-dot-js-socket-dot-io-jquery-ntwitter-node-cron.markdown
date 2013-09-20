@@ -28,9 +28,7 @@ We'll take San Francisco for our example, but any location in the world is possi
 
 I assume the reader has at least basic familiarity with Node, underscore.js, and socket.io.
 
-We'll use this fantastic [blog article](http://www.dillonbuchanan.com/programming/node-js-twitter-streaming-api-socket-io-twitter-cashtag-heatmap/) to bootstrap our code.
-
-The whole code will soon be available from a GitHub repository, for now I'll explain the highlights.
+The whole code is available from a [GitHub repository](https://github.com/prgreen/worldovision). Don't forget to "npm install" the missing modules if you intend to clone it, and fill in the relevant twitter account information.
 
 We'll use [express](http://expressjs.com/) as our web application framework of choice, for convenience, although we only have one route (it's a one page web app).
 
@@ -84,7 +82,7 @@ The node server will connect to the Twitter streaming API, filter tweets by loca
 
 We limit ourselves to 10 pictures to avoid straining the browser too much. On the server side though, we could save all photo links regularly to a database, if we wanted.
 
-For now we'll use this problem as an excuse to use the lovely node-cron module, and we'll ask the list to be emptied every 20 minutes:
+For now we'll use this problem as an excuse to use the lovely node-cron module, and we'll ask for the list to simply be emptied every 20 minutes:
 
 ``` javascript
 new cronJob('0 */20 * * * *', function(){
@@ -140,7 +138,7 @@ block content
 
 Although jQuery makes DOM manipulation easy and solves our problem, it's worth noting that AngularJS components are usually the best long-term solution with a more correct level of abstraction.
 
-The result can be observed here (available soon).
+The result can be observed [here](http://tty.mooo.com:3456).
 
 All the photos are realtime tweeted pictures from San Francisco!
 

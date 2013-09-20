@@ -7,9 +7,9 @@ sharing: false
 footer: false
 ---
 
-_**Hi. If you're a web company and would like to hire me, this page gives in-depth answers to a lot of common interview questions. You probably want to check my resume first (coming soon). I'll be adding more and more projects to my GitHub in the next few days (coming soon). 
+_**Hi. If you're a tech start-up in San Francisco and would like to hire me, this page gives in-depth answers to a lot of common interview questions. You probably want to check my resume first (coming soon). I'll be adding more and more projects to my GitHub in the next few days (coming soon).**_
 
-Contact me at guillaume.rene@gmail.com**_
+For now, all inquiries should go to **guillaume.rene@gmail.com**
 
 {% img center /images/bill.png %}
 
@@ -17,13 +17,15 @@ Contact me at guillaume.rene@gmail.com**_
 
 You can call me **Bill**. I was born near Chicago, IL, then raised in Paris, France for most of my life. I have dual citizenship (**American/French**).
 
-I'm a 25 year-old **Software Engineer** living near Paris, currently looking to move to **San Francisco (Sep/Oct 2013)** to join a **web start-up** full-time. 
+I'm a 25 year-old **Software Engineer** living near Paris, currently looking to move to **San Francisco (Sep/Oct 2013)** to join a **start-up** full-time. 
 
-I have **prior work experience in web start-ups** in Paris, designing or improving collaborative Facebook-like web platforms used to connect dozens of international French companies with ~30,000 students from top business or engineering schools. 
+I have a **strong all-around academic background** (Master of Science and Engineering from a top Engineering School in France, with a specialization in Computer Science ; this means I'm good at math) associated with a **true passion for programming** (this means I'm a hacker since young age).
+
+I have **significant prior work experience in web start-ups** in Paris, designing or improving collaborative Facebook-like web platforms used to connect dozens of international French companies with ~30,000 students from top business or engineering schools. 
 
 I also created various temporary websites or web services for specific social events, in direct collaboration with French national television (France 5, "La semaine pour l'emploi"), a trivia Facebook App for Rouen Business School ("Le défi des prépas") with scholarship prizes, and a lot of python hacks.  
 
-In my free time, I enjoy all sorts of activities, some of them not completely nerdy: solving Math problems programmatically, making small "retro style" video games, reading books in English (technical, sci-fi or heroic fantasy), writing novels and funny short stories, playing poker or go, improvising music on a piano, futurology and social issues, contributing translations to Ubuntu or bug reports to open source projects, etc.
+In my free time, I enjoy all sorts of activities, some of them not completely nerdy: making websites (that's convenient), solving Math problems programmatically, making small "retro style" video games, reading books in English (technical, sci-fi or heroic fantasy), writing novels and funny short stories, playing poker or go, improvising music on a piano, futurology and social issues, contributing translations to Ubuntu or bug reports to open source projects, helping people learn programming, etc.
 
 ## What are your main skills?
 
@@ -88,8 +90,27 @@ I'm capable of **speaking out** when I feel something is going wrong, or somethi
 
 I want things to work and I want them to work fast and optimally, (or fail fast if they're doomed to fail, so we can learn from it and move on), even when it means I have to increase my workload to insane levels, or temporarily help someone else do his job. I am extremely **pragmatic**. Overly long discussions and meetings are usually concluded by me offering a compromise or plan for action.
 
-I don't judge people or technologies. Whatever works is fine, and if it doesn't work or stops working, then there's something wrong.
+**I don't judge** people or technologies. Whatever works is fine, and if it doesn't work or stops working, then there's something wrong.
 
+I **never give up**, I'm never completely satisfied (this is my French side?), which means **I always find things to improve**. 
+
+**People trust me** and after some time, want me to take the lead on more and more projects. I'm always aware of what I know and what I don't know, so I'm generally trustworthy judging the quality of my code too.
+
+**I'm good at extracting information** on every subject. I can keep myself aware in a moving world. I can ask accurate questions on requirements for a project and then be done with it.
+
+**I'm an energizer**. I impart energy to other people. I inspire them to do great things, to forget about their problems and give the best. This is more useful to a CTO than an engineer, but still, I could be both in the future.
+
+**I'm always available**. People are not afraid to come interrupt me and talk to me about some bug or technical problem they encountered that I can fix.
+
+**I'm always honest and true**. I have a nearly pathological fear of lying. I will say nothing rather than say something I know is untrue. This proves essential in a start-up world where everyone bounces (sometimes) stupid ideas off each other and I'm apparently the only one capable of telling the truth about it (in the most respectful way possible, of course).
+
+**I don't care too much about social status or hierarchy**. I'll be happy in a mostly horizontal society. I give the same respect and attention to everyone. I can have meaningful conversations with "important" people, without being paralyzed. I'm not easily manipulated.
+
+**I can mix dreams and practical approaches**. I have both cultural sides of my nationalities: the creative, "inspired" latin side, and the anglo-saxon pragmatic side. I'm too pragmatic for France, I'm too crazy for non-californian America. I can be positive without being naive.
+
+**I can be extraordinarily systematic and thorough**. When the subject requires it.
+
+**I can use sarcasm as a way to take the drama out of life**. You can't outsource that to Bangalore.
 
 ## What are your 3 main weaknesses?
 
