@@ -4,7 +4,7 @@
   <title><![CDATA[Bill Green]]></title>
   <link href="http://prgreen.github.io/atom.xml" rel="self"/>
   <link href="http://prgreen.github.io/"/>
-  <updated>2013-09-20T11:43:57-07:00</updated>
+  <updated>2013-09-20T11:53:04-07:00</updated>
   <id>http://prgreen.github.io/</id>
   <author>
     <name><![CDATA[Bill Green]]></name>
@@ -129,7 +129,7 @@
 
 <p>The node server will connect to the Twitter streaming API, filter tweets by location (San Francisco in our example), add <strong>all links to tweeted photos in a list</strong>, and send either the last (more recent) 10 elements of the list (first update) or the individual elements (in subsequent realtime updates) to the client.</p>
 
-<p>We limit ourselves to 10 pictures to avoid straining the browser too much. On the server side though, we could save all photo links regularly to a database, if we wanted.</p>
+<p>We limit ourselves to 10 pictures to avoid putting too much strain on the browser. On the server side though, we could save all photo links regularly to a database, if we wanted.</p>
 
 <p>For now we’ll use this problem as an excuse to use the lovely node-cron module, and we’ll ask for the list to simply be emptied every 20 minutes:</p>
 
