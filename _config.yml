@@ -3,11 +3,11 @@
 # ----------------------- #
 
 url: http://prgreen.github.io
-title: Professor Green
+title: Bill Green
 subtitle: Extracting meaning
-author: Professor Green
+author: Bill Green
 simple_search: http://google.com/search
-description: The ramblings of a human being who is definitely NOT a professor, although vaguely knowledgeable in various subjects. Math, Culture, Tech, Music.
+description: Programming, Math, Tech, Culture, Music.
 
 # Default date format is "ordinal" (resulting in "July 22nd 2007")
 # You can customize the format as defined in

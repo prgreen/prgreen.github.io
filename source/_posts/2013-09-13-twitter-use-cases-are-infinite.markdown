@@ -26,12 +26,14 @@ Sure, patterns and "best practices" have emerged for typical personal use. But n
 
 ## What's next?
 
-Twitter is not just about individual micro-blogging anymore. It can simply be used as a generic platform for communication between companies and the masses.
+Twitter is not just about individual micro-blogging anymore, especially with the introduction of premium accounts. It can simply be used as a generic platform for communication between companies/celebrities/gurus/content producers and the masses.
 
-With the Twitter API, it's easy to imagine infinitely many new use cases, based on "practical hashtags", that can be used for customers to place orders when they send tweets to a specific company bot account.
+Companies want the publicity and feedback, masses want to be informed on the new products, make suggestions, and eventually buy stuff.
+
+With the Twitter API, it's easy to imagine infinitely many new use cases, based on "practical hashtags", that can be used by customers to place orders when they send tweets to a specific company bot account.
 
 Have order-by-tweet pizzerias. You send them your address once, then you place your orders when you want. A tweet is easier and more explicit than a phone call.
-It has an associated timestamp and undeniable source, so you can check delivery speed claims, and there can be no ambiguity or shenanigans about who ordered what.
+It has an associated timestamp and undeniable source, so you can check delivery speed claims, and there can be no ambiguity or shenanigans about who ordered what. With geolocalization added, you could be sitting on a park bench and still have your pizza delivered to you.
 
 Of course, as of today, modern society assumes pretty much everyone has a phone, but you can't assume everyone has a smartphone, or a Twitter account or knows how to use it or wants to. But the expectations of what is normal or not are shifting. In the future tweeting could be a ubiquitous activity any human being is assumed to be able to do, for a variety of purposes, like selecting entrees at a restaurant without the need to ever talk to a waiter (because you see, in the future people are all rendered socially awkward by all the time spent on their smartphones and computers). The telephone was widely adopted because of its practicality, and if Twitter can achieve the same level of practicality in its own domain, we can expect the same success in future generations.
 
@@ -39,7 +41,7 @@ Tweets as inputs to computer programs are not just useful to consumers, they hel
 
 You can have social events with people voting by tweet instead of SMS (but hey, TV shows need the money).
 
-If people have more incentives to tweet (I mean, more than social validation), if their tweet can trigger complex processes with more visible consequences, they will obviously tweet more and more people will tweet.
+If people have more incentives to tweet (I mean, more than social validation, tweets can get you stuff), if their tweet can trigger complex processes with more visible consequences, they will obviously tweet more and more people will tweet, all of which benefits Twitter.
 
-Tweets in the future could be used in any verifiable transaction. Despite the outrage it would cause, Twitter might eventually offer *all* their users the possibility to confirm their real identity, because the possible applications are endless, from voting in elections to money transactions (now you have your viable business model, guys).
+Tweets in the future could be used as a way to trigger any verifiable transaction. Despite the outrage it would cause, Twitter might eventually offer *all* their users the possibility to confirm their real identity, because the possible applications are endless, from voting in elections to money transactions (now you have your viable business model, guys).
 
