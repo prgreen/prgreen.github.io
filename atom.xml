@@ -4,7 +4,7 @@
   <title><![CDATA[Bill Green]]></title>
   <link href="http://prgreen.github.io/atom.xml" rel="self"/>
   <link href="http://prgreen.github.io/"/>
-  <updated>2013-09-20T10:52:59-07:00</updated>
+  <updated>2013-09-20T11:35:11-07:00</updated>
   <id>http://prgreen.github.io/</id>
   <author>
     <name><![CDATA[Bill Green]]></name>
@@ -43,9 +43,7 @@
 
 <p>I assume the reader has at least basic familiarity with Node, underscore.js, and socket.io.</p>
 
-<p>We’ll use this fantastic <a href="http://www.dillonbuchanan.com/programming/node-js-twitter-streaming-api-socket-io-twitter-cashtag-heatmap/">blog article</a> to bootstrap our code.</p>
-
-<p>The whole code will soon be available from a GitHub repository, for now I’ll explain the highlights.</p>
+<p>The whole code is available from a <a href="https://github.com/prgreen/worldovision">GitHub repository</a>. Don’t forget to “npm install” the missing modules if you intend to clone it, and fill in the relevant twitter account information.</p>
 
 <p>We’ll use <a href="http://expressjs.com/">express</a> as our web application framework of choice, for convenience, although we only have one route (it’s a one page web app).</p>
 
@@ -222,7 +220,7 @@
 
 <p>Although jQuery makes DOM manipulation easy and solves our problem, it’s worth noting that AngularJS components are usually the best long-term solution with a more correct level of abstraction.</p>
 
-<p>The result can be observed here (available soon).</p>
+<p>The result can be observed <a href="http://tty.mooo.com:3456">here</a>.</p>
 
 <p>All the photos are realtime tweeted pictures from San Francisco!</p>
 
