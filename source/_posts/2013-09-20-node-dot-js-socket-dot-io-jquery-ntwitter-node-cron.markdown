@@ -80,7 +80,7 @@ t.stream('statuses/filter', { locations : '-122.75,36.8,-121.75,37.8' }, functio
 
 The node server will connect to the Twitter streaming API, filter tweets by location (San Francisco in our example), add **all links to tweeted photos in a list**, and send either the last (more recent) 10 elements of the list (first update) or the individual elements (in subsequent realtime updates) to the client.
 
-We limit ourselves to 10 pictures to avoid straining the browser too much. On the server side though, we could save all photo links regularly to a database, if we wanted.
+We limit ourselves to 10 pictures to avoid putting too much strain on the browser. On the server side though, we could save all photo links regularly to a database, if we wanted.
 
 For now we'll use this problem as an excuse to use the lovely node-cron module, and we'll ask for the list to simply be emptied every 20 minutes:
 
@@ -149,6 +149,8 @@ All that can be coded and presented as a prototype, in less time than it took me
 - We could add more interaction with the users by asking them to mark their favorite pictures. At the end of every day, we select the most liked pictures, more deserving of representing the city they originate from.
 
 - We could offer the use a choice of cities. Wonder what people are eating in Paris? Connect to World-o-vision at the right time of the day, and you'll know!
+
+- We could display the average time between photos. The activity is a lot higher during the day. During the night the same photos will stay for a long time.
 
 - Elect the most attractive city, based on how liked the tweeted pictures from each city are.
 
