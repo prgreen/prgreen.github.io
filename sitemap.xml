@@ -35,8 +35,14 @@
         <lastmod>2013-09-20T11:57:24-07:00</lastmod>
     </url>
     <url>
+        <loc>
+            http://prgreen.github.io/blog/2013/09/21/dependency-injection-and-abstracting-your-environment/
+        </loc>
+        <lastmod>2013-09-21T13:20:34-07:00</lastmod>
+    </url>
+    <url>
         <loc>http://prgreen.github.io/</loc>
-        <lastmod>2013-09-20T11:57:24-07:00</lastmod>
+        <lastmod>2013-09-21T13:20:34-07:00</lastmod>
     </url>
     <url>
         <loc>http://prgreen.github.io/robots.txt</loc>
@@ -44,7 +50,7 @@
     </url>
     <url>
         <loc>http://prgreen.github.io/blog/archives/</loc>
-        <lastmod>2013-09-20T11:57:24-07:00</lastmod>
+        <lastmod>2013-09-21T13:20:34-07:00</lastmod>
     </url>
     <url>
         <loc>http://prgreen.github.io/about-me/</loc>
