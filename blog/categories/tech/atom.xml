@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Tech | Bill Green]]></title>
   <link href="http://prgreen.github.io/blog/categories/tech/atom.xml" rel="self"/>
   <link href="http://prgreen.github.io/"/>
-  <updated>2013-09-21T13:20:51-07:00</updated>
+  <updated>2013-09-24T10:07:37-07:00</updated>
   <id>http://prgreen.github.io/</id>
   <author>
     <name><![CDATA[Bill Green]]></name>
@@ -12,62 +12,6 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
-  
-  <entry>
-    <title type="html"><![CDATA[Dependency injection and abstracting your environment]]></title>
-    <link href="http://prgreen.github.io/blog/2013/09/21/dependency-injection-and-abstracting-your-environment/"/>
-    <updated>2013-09-21T11:37:00-07:00</updated>
-    <id>http://prgreen.github.io/blog/2013/09/21/dependency-injection-and-abstracting-your-environment</id>
-    <content type="html"><![CDATA[<p><a href="http://en.wikipedia.org/wiki/Dependency_injection">Dependency injection</a> is one of the most useful software design pattern.</p>
-
-<p>Although explanations on the subject can become long-winded, the core idea behind dependency injection is one of the most simple and natural, not just in programming, but also in life.</p>
-
-<p>To me, it’s all about abstracting the environment.</p>
-
-<h2 id="recognizing-patterns-in-your-environment-makes-you-more-adaptable">Recognizing patterns in your environment makes you more adaptable</h2>
-
-<p>Let’s say that, pining for a change of air, you decide to move to China (or anywhere that is the most exotic place you can imagine).</p>
-
-<p>Obviously, there’s a lot of things that will confuse you. But you will still be able to survive. How so?</p>
-
-<p>By going upwards in the levels of abstraction. You can’t understand anything particuliar, but you still understand the general things, and that’s really good enough for you. You don’t know the words, but you know people around you speak a language, you can realize someone is talking to you, act in consequence, use body language. You don’t know what the food is made of, or what kind it is, but you can be pretty sure it’s food.</p>
-
-<p>You don’t reason in terms of familiar, accurate, specific words anymore, but in terms of general sensations and concepts.</p>
-
-<h2 id="abstraction-is-not-a-vague-mathematical-concept-its-a-survival-tool">Abstraction is not a vague mathematical concept, it’s a survival tool</h2>
-
-<p>What is abstraction anyway, at a fundamental level, how do we understand it, as human beings? It’s recognizing similar things or processes, identifying generic patterns, that unite things that are superficially dissimilar, but can be treated in the same way for certain applications.</p>
-
-<p>For example, you can eat chinese food (specific) or any sort of food, once you recognize it is indeed food (the more abstract concept).</p>
-
-<p>Abstraction is a very powerful concept, probably the most useful in programming, where all you do all day is choose the right level of abstraction and implement all the specific layers from there.</p>
-
-<p>It’s not that obvious, animals are said to be incapable of abstract reasoning. And even with a human brain it’s something you can’t really form abstract thoughts until you’re around 11 years old.</p>
-
-<p>Animals are too strongly tied to their environment, it never changes that much, and when it does, the species just goes extinct. It’s the equivalent of a code that simply hardcodes environment values instead of reading them from the environment, and breaks when the environment changes.</p>
-
-<h2 id="in-programming-the-environment-should-be-abstracted-too">In programming, the environment should be abstracted too</h2>
-
-<p>To make your code more resilient to all the changes occurring around it (especially when your code is part of a library that will be used in various kinds of projects), your classes should depend on interfaces (how things around the class <em>generally</em> are or behave) rather than one specific class.</p>
-
-<p>If you want your code to be as adaptable as humanity, it means to make the least possible amount of assumptions on what is immediately available to it.</p>
-
-<p>Because if you don’t, and your code travels to China, it won’t recognize the local food and will just die an evitable death. Get it?</p>
-
-<h2 id="what-about-dependency-injection-then">What about dependency injection, then?</h2>
-
-<p>Animals often require their environment to be finely tuned to them, while humans only require their environment to conform to generic expectations (water, food, stuff to build things from).</p>
-
-<p>And it’s easier to satisfy generic expectations, not to mention more things will satisfy them, so your piece of code will be useful in more situations than you previously thought was possible, the same way humans can survive in nuclear submarines, in the desert or on the arctic circle.</p>
-
-<p>Dependency injection means that, instead of your class requiring something particular that you need to actively seek out immediately (at compile time), you require something more abstract and you don’t have it yet (because it’s abstract, it’s not “a thing”, it’s a concept). But the environment can then inject the dependency, the “real” object, at runtime.</p>
-
-<p>Without dependency injection, your code NEEDS the environment to be perfectly accomodating of its own needs or it will break. With dependency injection, the environment can try to throw anything at your code, only when it needs to, as long as it’s within some accepted rules, it will work.</p>
-
-<p>Understanding dependency injection is one of the most spectacular ways to improve the quality and reusability of your code.</p>
-
-]]></content>
-  </entry>
   
   <entry>
     <title type="html"><![CDATA[Twitter use cases are infinite]]></title>
