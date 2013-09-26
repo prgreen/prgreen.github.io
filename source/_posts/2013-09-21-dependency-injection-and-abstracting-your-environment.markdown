@@ -4,6 +4,7 @@ title: "Dependency injection and abstracting your environment"
 date: 2013-09-21 11:37
 comments: true
 categories: Tech 
+published: false
 ---
 
 [Dependency injection](http://en.wikipedia.org/wiki/Dependency_injection) is one of the most useful software design pattern.
