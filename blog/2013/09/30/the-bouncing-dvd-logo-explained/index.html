@@ -1,0 +1,654 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>The bouncing DVD logo explained - Bill Green</title>
+  <meta name="author" content="Bill Green">
+
+  
+  <meta name="description" content="Many people seem to experience great satisfaction watching their DVD player screensaver on their TV, looking forward to the moment where the logo &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://prgreen.github.io/blog/2013/09/30/the-bouncing-dvd-logo-explained">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <link href="/atom.xml" rel="alternate" title="Bill Green" type="application/atom+xml">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script>!window.jQuery && document.write(unescape('%3Cscript src="./javascripts/lib/jquery.min.js"%3E%3C/script%3E'))</script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+
+  
+  <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-43972664-1']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+  </script>
+
+
+</head>
+
+<body   >
+  <header role="banner"><hgroup>
+  <h1><a href="/">Bill Green</a></h1>
+  
+    <h2>Extracting meaning</h2>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="http://google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:prgreen.github.io" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/">Blog</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+  <li><a href="/about-me">About me</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div>
+<article class="hentry" role="article">
+  
+  <header>
+    
+      <h1 class="entry-title">The bouncing DVD logo explained</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-09-30T01:25:00-07:00" pubdate data-updated="true">Sep 30<span>th</span>, 2013</time>
+        
+         | <a href="#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+<div class="entry-content"><p>Many people seem to experience great satisfaction watching their DVD player screensaver on their TV, looking forward to the moment where the logo hits a corner perfectly.</p>
+
+<p>I don’t judge, because it’s actually fascinating, from a mathematical point of view.</p>
+
+<p>It was mentioned in a cold opening from The Office, and is still a great pastime when you’re under the influence.</p>
+
+<iframe width="420" height="315" src="//www.youtube.com/embed/iI-RY8ducRc" frameborder="0" allowfullscreen=""></iframe>
+
+<h2 id="the-math-behind-the-greatest-mystery-of-all-time">The math behind the greatest mystery of all time</h2>
+
+<p>We’ll make a few reasonable assumptions:</p>
+
+<ul>
+  <li>The TV screen is a W by H rectangle, the DVD logo is a w by h rectangle, with</li>
+</ul>
+
+<script type="math/tex; mode=display">% <![CDATA[
+
+0 < w < W \\
+0 < h < H
+ %]]></script>
+
+<ul>
+  <li>
+    <p>The DVD logo moves with a perfectly diagonal constant speed (same absolute speed on both axes).</p>
+  </li>
+  <li>
+    <p>It bounces off the edges of the screen perfectly. </p>
+  </li>
+  <li>
+    <p>Sometimes the DVD logo image and its collision rectangle aren’t perfectly aligned, but this is irrelevant to our discussion, just choose the appropriate collision shapes in your calculations.</p>
+  </li>
+</ul>
+
+<p>Now we can start our investigations.</p>
+
+<p>I leave the demonstration to the reader (simple high-school level(?) math, modular arithmetic, least common multiple and greatest common divisor, and using Bézout’s identity to solve a simple Diophantine equation).</p>
+
+<p><img class="center" src="/images/dvdlogo.png" /></p>
+
+<p><em><strong>x</strong> and <strong>y</strong> are the coordinates of the starting position.</em> 
+<em><strong>w</strong> and <strong>h</strong> are the dimensions of the logo.</em> 
+<em><strong>W</strong> and <strong>H</strong> are the dimensions of the screen.</em> </p>
+
+<p>We discover the following fascinating properties:</p>
+
+<blockquote>
+  <p>When you hit a corner, you will hit a different corner before hitting the same one again, etc.</p>
+</blockquote>
+
+<blockquote>
+  <p>You can never hit 1, 3 or 4 corners, always <strong>2 or 0</strong>.</p>
+</blockquote>
+
+<blockquote>
+  <p>It’s a loop, at some point it will always repeat.</p>
+</blockquote>
+
+<blockquote>
+  <p>The traveled distance between corners is <strong>lcm(W - w, H - h)</strong>.</p>
+</blockquote>
+
+<blockquote>
+  <p>The <strong>condition for corners to be reached</strong> is</p>
+</blockquote>
+
+<script type="math/tex; mode=display">
+|x-y| \equiv 0 \mod gcd(W-w, H-h)
+</script>
+
+<blockquote>
+  <p>When this condition is not met, no corner will be hit.</p>
+</blockquote>
+
+<p>The corners hit <strong>can be determined in advance</strong>. The following Javascript code does it.</p>
+
+<p>L = Left 
+R = Right 
+B = Bottom 
+T = Top</p>
+
+<div class="bogus-wrapper"><notextile><figure class="code"><figcaption><span>corner.js</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
+<span class="line-number">2</span>
+<span class="line-number">3</span>
+<span class="line-number">4</span>
+<span class="line-number">5</span>
+<span class="line-number">6</span>
+<span class="line-number">7</span>
+<span class="line-number">8</span>
+<span class="line-number">9</span>
+<span class="line-number">10</span>
+<span class="line-number">11</span>
+<span class="line-number">12</span>
+<span class="line-number">13</span>
+<span class="line-number">14</span>
+<span class="line-number">15</span>
+<span class="line-number">16</span>
+<span class="line-number">17</span>
+<span class="line-number">18</span>
+<span class="line-number">19</span>
+<span class="line-number">20</span>
+<span class="line-number">21</span>
+<span class="line-number">22</span>
+<span class="line-number">23</span>
+<span class="line-number">24</span>
+<span class="line-number">25</span>
+<span class="line-number">26</span>
+<span class="line-number">27</span>
+<span class="line-number">28</span>
+<span class="line-number">29</span>
+<span class="line-number">30</span>
+<span class="line-number">31</span>
+</pre></td><td class="code"><pre><code class="javascript"><span class="line"><span class="kd">var</span> <span class="nx">x</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+</span><span class="line"><span class="kd">var</span> <span class="nx">y</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+</span><span class="line"><span class="kd">var</span> <span class="nx">w</span> <span class="o">=</span> <span class="mi">90</span><span class="p">;</span>
+</span><span class="line"><span class="kd">var</span> <span class="nx">h</span> <span class="o">=</span> <span class="mi">60</span><span class="p">;</span>
+</span><span class="line">
+</span><span class="line"><span class="kd">var</span> <span class="nx">W</span> <span class="o">=</span> <span class="mi">400</span><span class="p">;</span>
+</span><span class="line"><span class="kd">var</span> <span class="nx">H</span> <span class="o">=</span> <span class="mi">300</span><span class="p">;</span>
+</span><span class="line">
+</span><span class="line"><span class="kd">var</span> <span class="nx">W0</span> <span class="o">=</span> <span class="nx">W</span> <span class="o">-</span> <span class="nx">w</span><span class="p">;</span> <span class="c1">//the effective displacement</span>
+</span><span class="line"><span class="kd">var</span> <span class="nx">H0</span> <span class="o">=</span> <span class="nx">H</span> <span class="o">-</span> <span class="nx">h</span><span class="p">;</span>
+</span><span class="line">
+</span><span class="line"><span class="k">if</span> <span class="p">(</span><span class="nb">Math</span><span class="p">.</span><span class="nx">abs</span><span class="p">(</span><span class="nx">x</span><span class="o">-</span><span class="nx">y</span><span class="p">)</span> <span class="o">%</span> <span class="nx">gcd</span><span class="p">(</span><span class="nx">W0</span><span class="p">,</span> <span class="nx">H0</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+</span><span class="line">    <span class="c1">// corners will be reached</span>
+</span><span class="line">    <span class="k">if</span> <span class="p">((</span><span class="nb">Math</span><span class="p">.</span><span class="nx">abs</span><span class="p">(</span><span class="nx">x</span><span class="o">-</span><span class="nx">y</span><span class="p">)</span> <span class="o">/</span> <span class="nx">gcd</span><span class="p">(</span><span class="nx">W0</span><span class="p">,</span> <span class="nx">H0</span><span class="p">))</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+</span><span class="line">        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">((</span><span class="nx">lcm</span><span class="p">(</span><span class="nx">W0</span><span class="p">,</span><span class="nx">H0</span><span class="p">)</span><span class="o">/</span><span class="nx">H0</span><span class="p">)</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span> <span class="o">?</span> <span class="s1">&#39;T&#39;</span> <span class="o">:</span> <span class="s1">&#39;B&#39;</span><span class="p">);</span>
+</span><span class="line">        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">((</span><span class="nx">lcm</span><span class="p">(</span><span class="nx">W0</span><span class="p">,</span><span class="nx">H0</span><span class="p">)</span><span class="o">/</span><span class="nx">W0</span><span class="p">)</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span> <span class="o">?</span> <span class="s1">&#39;L&#39;</span> <span class="o">:</span> <span class="s1">&#39;R&#39;</span><span class="p">);</span>
+</span><span class="line">
+</span><span class="line">        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;T&#39;</span><span class="p">);</span>
+</span><span class="line">        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;L&#39;</span><span class="p">);</span>
+</span><span class="line">
+</span><span class="line">    <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+</span><span class="line">        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">((</span><span class="nx">lcm</span><span class="p">(</span><span class="nx">W0</span><span class="p">,</span><span class="nx">H0</span><span class="p">)</span><span class="o">/</span><span class="nx">H0</span><span class="p">)</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">!=</span> <span class="mi">0</span> <span class="o">?</span> <span class="s1">&#39;T&#39;</span> <span class="o">:</span> <span class="s1">&#39;B&#39;</span><span class="p">);</span>
+</span><span class="line">        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">((</span><span class="nx">lcm</span><span class="p">(</span><span class="nx">W0</span><span class="p">,</span><span class="nx">H0</span><span class="p">)</span><span class="o">/</span><span class="nx">W0</span><span class="p">)</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">!=</span> <span class="mi">0</span> <span class="o">?</span> <span class="s1">&#39;L&#39;</span> <span class="o">:</span> <span class="s1">&#39;R&#39;</span><span class="p">);</span>
+</span><span class="line">
+</span><span class="line">        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;B&#39;</span><span class="p">);</span>
+</span><span class="line">        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;R&#39;</span><span class="p">);</span>
+</span><span class="line">    <span class="p">}</span>
+</span><span class="line"><span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+</span><span class="line">    <span class="c1">// no corner will be hit</span>
+</span><span class="line">    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;No corner!&quot;</span><span class="p">);</span>
+</span><span class="line"><span class="p">}</span>
+</span></code></pre></td></tr></table></div></figure></notextile></div>
+
+<p>For programmers out there, I made a simple HTML5 Canvas demo (might not work on some browsers) that you can integrate in an html file. If you’re patient it will eventually hit a corner after a few minutes, then another one, then the same again, indefinitely.</p>
+
+<div class="bogus-wrapper"><notextile><figure class="code"><figcaption><span>dvdlogo.html</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
+<span class="line-number">2</span>
+<span class="line-number">3</span>
+<span class="line-number">4</span>
+<span class="line-number">5</span>
+<span class="line-number">6</span>
+<span class="line-number">7</span>
+<span class="line-number">8</span>
+<span class="line-number">9</span>
+<span class="line-number">10</span>
+<span class="line-number">11</span>
+<span class="line-number">12</span>
+<span class="line-number">13</span>
+<span class="line-number">14</span>
+<span class="line-number">15</span>
+<span class="line-number">16</span>
+<span class="line-number">17</span>
+<span class="line-number">18</span>
+<span class="line-number">19</span>
+<span class="line-number">20</span>
+<span class="line-number">21</span>
+<span class="line-number">22</span>
+<span class="line-number">23</span>
+<span class="line-number">24</span>
+<span class="line-number">25</span>
+<span class="line-number">26</span>
+<span class="line-number">27</span>
+<span class="line-number">28</span>
+<span class="line-number">29</span>
+<span class="line-number">30</span>
+<span class="line-number">31</span>
+<span class="line-number">32</span>
+<span class="line-number">33</span>
+<span class="line-number">34</span>
+<span class="line-number">35</span>
+<span class="line-number">36</span>
+<span class="line-number">37</span>
+<span class="line-number">38</span>
+<span class="line-number">39</span>
+<span class="line-number">40</span>
+<span class="line-number">41</span>
+<span class="line-number">42</span>
+<span class="line-number">43</span>
+<span class="line-number">44</span>
+<span class="line-number">45</span>
+<span class="line-number">46</span>
+<span class="line-number">47</span>
+<span class="line-number">48</span>
+<span class="line-number">49</span>
+<span class="line-number">50</span>
+<span class="line-number">51</span>
+<span class="line-number">52</span>
+<span class="line-number">53</span>
+<span class="line-number">54</span>
+<span class="line-number">55</span>
+<span class="line-number">56</span>
+<span class="line-number">57</span>
+<span class="line-number">58</span>
+<span class="line-number">59</span>
+<span class="line-number">60</span>
+<span class="line-number">61</span>
+<span class="line-number">62</span>
+<span class="line-number">63</span>
+<span class="line-number">64</span>
+<span class="line-number">65</span>
+<span class="line-number">66</span>
+<span class="line-number">67</span>
+<span class="line-number">68</span>
+<span class="line-number">69</span>
+<span class="line-number">70</span>
+<span class="line-number">71</span>
+<span class="line-number">72</span>
+<span class="line-number">73</span>
+<span class="line-number">74</span>
+<span class="line-number">75</span>
+<span class="line-number">76</span>
+<span class="line-number">77</span>
+<span class="line-number">78</span>
+<span class="line-number">79</span>
+<span class="line-number">80</span>
+<span class="line-number">81</span>
+<span class="line-number">82</span>
+<span class="line-number">83</span>
+<span class="line-number">84</span>
+<span class="line-number">85</span>
+<span class="line-number">86</span>
+<span class="line-number">87</span>
+<span class="line-number">88</span>
+<span class="line-number">89</span>
+<span class="line-number">90</span>
+<span class="line-number">91</span>
+<span class="line-number">92</span>
+<span class="line-number">93</span>
+<span class="line-number">94</span>
+<span class="line-number">95</span>
+<span class="line-number">96</span>
+<span class="line-number">97</span>
+<span class="line-number">98</span>
+<span class="line-number">99</span>
+<span class="line-number">100</span>
+<span class="line-number">101</span>
+<span class="line-number">102</span>
+<span class="line-number">103</span>
+<span class="line-number">104</span>
+<span class="line-number">105</span>
+<span class="line-number">106</span>
+<span class="line-number">107</span>
+<span class="line-number">108</span>
+<span class="line-number">109</span>
+<span class="line-number">110</span>
+<span class="line-number">111</span>
+<span class="line-number">112</span>
+<span class="line-number">113</span>
+<span class="line-number">114</span>
+<span class="line-number">115</span>
+<span class="line-number">116</span>
+<span class="line-number">117</span>
+<span class="line-number">118</span>
+<span class="line-number">119</span>
+<span class="line-number">120</span>
+<span class="line-number">121</span>
+</pre></td><td class="code"><pre><code class="javascript"><span class="line"><span class="o">&lt;</span><span class="nx">canvas</span> <span class="nx">id</span><span class="o">=</span><span class="s2">&quot;c&quot;</span><span class="o">&gt;</span>
+</span><span class="line">
+</span><span class="line"><span class="o">&lt;</span><span class="nx">script</span> <span class="nx">type</span><span class="o">=</span><span class="s2">&quot;text/javascript&quot;</span><span class="o">&gt;</span>
+</span><span class="line"><span class="kd">var</span> <span class="nx">x</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+</span><span class="line"><span class="kd">var</span> <span class="nx">y</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+</span><span class="line"><span class="kd">var</span> <span class="nx">vx</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+</span><span class="line"><span class="kd">var</span> <span class="nx">vy</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+</span><span class="line"><span class="kd">var</span> <span class="nx">w</span> <span class="o">=</span> <span class="mi">90</span><span class="p">;</span>
+</span><span class="line"><span class="kd">var</span> <span class="nx">h</span> <span class="o">=</span> <span class="mi">60</span><span class="p">;</span>
+</span><span class="line">
+</span><span class="line"><span class="kd">var</span> <span class="nx">W</span> <span class="o">=</span> <span class="mi">400</span><span class="p">;</span>
+</span><span class="line"><span class="kd">var</span> <span class="nx">H</span> <span class="o">=</span> <span class="mi">300</span><span class="p">;</span>
+</span><span class="line">
+</span><span class="line"><span class="kd">function</span> <span class="nx">gcd</span><span class="p">(</span><span class="nx">a</span><span class="p">,</span><span class="nx">b</span><span class="p">)</span> <span class="p">{</span>
+</span><span class="line">    <span class="kd">var</span> <span class="nx">temp</span><span class="p">;</span>
+</span><span class="line">    <span class="k">if</span><span class="p">(</span><span class="nx">a</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span><span class="nx">a</span> <span class="o">=</span> <span class="o">-</span><span class="nx">a</span><span class="p">;};</span>
+</span><span class="line">    <span class="k">if</span><span class="p">(</span><span class="nx">b</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span><span class="nx">b</span> <span class="o">=</span> <span class="o">-</span><span class="nx">b</span><span class="p">;};</span>
+</span><span class="line">    <span class="k">if</span><span class="p">(</span><span class="nx">b</span> <span class="o">&gt;</span> <span class="nx">a</span><span class="p">)</span> <span class="p">{</span><span class="nx">temp</span> <span class="o">=</span> <span class="nx">a</span><span class="p">;</span> <span class="nx">a</span> <span class="o">=</span> <span class="nx">b</span><span class="p">;</span> <span class="nx">b</span> <span class="o">=</span> <span class="nx">temp</span><span class="p">;};</span>
+</span><span class="line">    <span class="k">while</span> <span class="p">(</span><span class="kc">true</span><span class="p">)</span> <span class="p">{</span>
+</span><span class="line">     <span class="nx">a</span> <span class="o">%=</span> <span class="nx">b</span><span class="p">;</span>
+</span><span class="line">     <span class="k">if</span><span class="p">(</span><span class="nx">a</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span><span class="k">return</span> <span class="nx">b</span><span class="p">;};</span>
+</span><span class="line">     <span class="nx">b</span> <span class="o">%=</span> <span class="nx">a</span><span class="p">;</span>
+</span><span class="line">     <span class="k">if</span><span class="p">(</span><span class="nx">b</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span><span class="k">return</span> <span class="nx">a</span><span class="p">;};</span>
+</span><span class="line">    <span class="p">};</span>
+</span><span class="line">    <span class="k">return</span> <span class="nx">b</span><span class="p">;</span>
+</span><span class="line"><span class="p">}</span>
+</span><span class="line"><span class="kd">function</span> <span class="nx">lcm</span><span class="p">(</span><span class="nx">a</span><span class="p">,</span><span class="nx">b</span><span class="p">)</span> <span class="p">{</span>
+</span><span class="line">    <span class="k">return</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">abs</span><span class="p">(</span><span class="nx">a</span><span class="o">*</span><span class="nx">b</span><span class="p">)</span><span class="o">/</span><span class="nx">gcd</span><span class="p">(</span><span class="nx">a</span><span class="p">,</span><span class="nx">b</span><span class="p">);</span>
+</span><span class="line"><span class="p">}</span>
+</span><span class="line">
+</span><span class="line"><span class="kd">var</span> <span class="nx">W0</span> <span class="o">=</span> <span class="nx">W</span> <span class="o">-</span> <span class="nx">w</span><span class="p">;</span>
+</span><span class="line"><span class="kd">var</span> <span class="nx">H0</span> <span class="o">=</span> <span class="nx">H</span> <span class="o">-</span> <span class="nx">h</span><span class="p">;</span>
+</span><span class="line">
+</span><span class="line">
+</span><span class="line"><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;W0 &#39;</span> <span class="o">+</span> <span class="nx">W0</span><span class="p">);</span>
+</span><span class="line"><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;H0 &#39;</span> <span class="o">+</span> <span class="nx">H0</span><span class="p">);</span>
+</span><span class="line"><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;gcd &#39;</span> <span class="o">+</span> <span class="nx">gcd</span><span class="p">(</span><span class="nx">W0</span><span class="p">,</span> <span class="nx">H0</span><span class="p">));</span>
+</span><span class="line"><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;lcm w h &#39;</span> <span class="o">+</span> <span class="nx">lcm</span><span class="p">(</span><span class="nx">W0</span><span class="p">,</span> <span class="nx">H0</span><span class="p">));</span>
+</span><span class="line">
+</span><span class="line"><span class="k">if</span> <span class="p">(</span><span class="nb">Math</span><span class="p">.</span><span class="nx">abs</span><span class="p">(</span><span class="nx">x</span><span class="o">-</span><span class="nx">y</span><span class="p">)</span> <span class="o">%</span> <span class="nx">gcd</span><span class="p">(</span><span class="nx">W0</span><span class="p">,</span> <span class="nx">H0</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+</span><span class="line">    <span class="c1">// corners will be reached</span>
+</span><span class="line">    <span class="k">if</span> <span class="p">((</span><span class="nb">Math</span><span class="p">.</span><span class="nx">abs</span><span class="p">(</span><span class="nx">x</span><span class="o">-</span><span class="nx">y</span><span class="p">)</span> <span class="o">/</span> <span class="nx">gcd</span><span class="p">(</span><span class="nx">W0</span><span class="p">,</span> <span class="nx">H0</span><span class="p">))</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+</span><span class="line">        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">((</span><span class="nx">lcm</span><span class="p">(</span><span class="nx">W0</span><span class="p">,</span><span class="nx">H0</span><span class="p">)</span><span class="o">/</span><span class="nx">H0</span><span class="p">)</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span> <span class="o">?</span> <span class="s1">&#39;T&#39;</span> <span class="o">:</span> <span class="s1">&#39;B&#39;</span><span class="p">);</span>
+</span><span class="line">        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">((</span><span class="nx">lcm</span><span class="p">(</span><span class="nx">W0</span><span class="p">,</span><span class="nx">H0</span><span class="p">)</span><span class="o">/</span><span class="nx">W0</span><span class="p">)</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span> <span class="o">?</span> <span class="s1">&#39;L&#39;</span> <span class="o">:</span> <span class="s1">&#39;R&#39;</span><span class="p">);</span>
+</span><span class="line">
+</span><span class="line">        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;T&#39;</span><span class="p">);</span>
+</span><span class="line">        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;L&#39;</span><span class="p">);</span>
+</span><span class="line">
+</span><span class="line">    <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+</span><span class="line">        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">((</span><span class="nx">lcm</span><span class="p">(</span><span class="nx">W0</span><span class="p">,</span><span class="nx">H0</span><span class="p">)</span><span class="o">/</span><span class="nx">H0</span><span class="p">)</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">!=</span> <span class="mi">0</span> <span class="o">?</span> <span class="s1">&#39;T&#39;</span> <span class="o">:</span> <span class="s1">&#39;B&#39;</span><span class="p">);</span>
+</span><span class="line">        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">((</span><span class="nx">lcm</span><span class="p">(</span><span class="nx">W0</span><span class="p">,</span><span class="nx">H0</span><span class="p">)</span><span class="o">/</span><span class="nx">W0</span><span class="p">)</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">!=</span> <span class="mi">0</span> <span class="o">?</span> <span class="s1">&#39;L&#39;</span> <span class="o">:</span> <span class="s1">&#39;R&#39;</span><span class="p">);</span>
+</span><span class="line">
+</span><span class="line">        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;B&#39;</span><span class="p">);</span>
+</span><span class="line">        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;R&#39;</span><span class="p">);</span>
+</span><span class="line">    <span class="p">}</span>
+</span><span class="line"><span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+</span><span class="line">    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;No corner!&quot;</span><span class="p">);</span>
+</span><span class="line"><span class="p">}</span>
+</span><span class="line">
+</span><span class="line">
+</span><span class="line"><span class="kd">function</span> <span class="nx">animate</span><span class="p">()</span> <span class="p">{</span>
+</span><span class="line">
+</span><span class="line">    <span class="nx">reqAnimFrame</span> <span class="o">=</span> <span class="nb">window</span><span class="p">.</span><span class="nx">mozRequestAnimationFrame</span>    <span class="o">||</span>
+</span><span class="line">                <span class="nb">window</span><span class="p">.</span><span class="nx">webkitRequestAnimationFrame</span> <span class="o">||</span>
+</span><span class="line">                <span class="nb">window</span><span class="p">.</span><span class="nx">msRequestAnimationFrame</span>     <span class="o">||</span>
+</span><span class="line">                <span class="nb">window</span><span class="p">.</span><span class="nx">oRequestAnimationFrame</span>
+</span><span class="line">                <span class="p">;</span>
+</span><span class="line">
+</span><span class="line">    <span class="nx">reqAnimFrame</span><span class="p">(</span><span class="nx">animate</span><span class="p">);</span>
+</span><span class="line">
+</span><span class="line">    <span class="k">for</span> <span class="p">(</span><span class="kd">var</span> <span class="nx">i</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span><span class="nx">i</span><span class="o">&lt;</span><span class="mi">1</span><span class="p">;</span><span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span> <span class="c1">// change if you want it to go faster</span>
+</span><span class="line">        <span class="nx">x</span> <span class="o">+=</span> <span class="nx">vx</span><span class="p">;</span>
+</span><span class="line">        <span class="nx">y</span> <span class="o">+=</span> <span class="nx">vy</span><span class="p">;</span>
+</span><span class="line">        <span class="k">if</span><span class="p">(</span><span class="nx">x</span><span class="o">+</span><span class="nx">w</span><span class="o">==</span><span class="nx">W</span><span class="p">)</span> <span class="nx">vx</span> <span class="o">=</span> <span class="o">-</span><span class="nx">vx</span><span class="p">;</span>
+</span><span class="line">        <span class="k">if</span><span class="p">(</span><span class="nx">y</span><span class="o">+</span><span class="nx">h</span><span class="o">==</span><span class="nx">H</span><span class="p">)</span> <span class="nx">vy</span> <span class="o">=</span> <span class="o">-</span><span class="nx">vy</span><span class="p">;</span>
+</span><span class="line">        <span class="k">if</span><span class="p">(</span><span class="nx">x</span><span class="o">==</span><span class="mi">0</span><span class="p">)</span> <span class="nx">vx</span> <span class="o">=</span> <span class="o">-</span><span class="nx">vx</span><span class="p">;</span>
+</span><span class="line">        <span class="k">if</span><span class="p">(</span><span class="nx">y</span><span class="o">==</span><span class="mi">0</span><span class="p">)</span> <span class="nx">vy</span> <span class="o">=</span> <span class="o">-</span><span class="nx">vy</span><span class="p">;</span>
+</span><span class="line">
+</span><span class="line">
+</span><span class="line">    <span class="p">}</span>
+</span><span class="line">
+</span><span class="line">    <span class="nx">draw</span><span class="p">();</span>
+</span><span class="line"><span class="p">}</span>
+</span><span class="line">
+</span><span class="line">
+</span><span class="line"><span class="kd">function</span> <span class="nx">draw</span><span class="p">()</span> <span class="p">{</span>
+</span><span class="line">    <span class="kd">var</span> <span class="nx">canvas</span>  <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s2">&quot;c&quot;</span><span class="p">);</span>
+</span><span class="line">    <span class="kd">var</span> <span class="nx">context</span> <span class="o">=</span> <span class="nx">canvas</span><span class="p">.</span><span class="nx">getContext</span><span class="p">(</span><span class="s2">&quot;2d&quot;</span><span class="p">);</span>
+</span><span class="line">
+</span><span class="line">    <span class="nx">context</span><span class="p">.</span><span class="nx">clearRect</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="nx">W</span><span class="p">,</span> <span class="nx">H</span><span class="p">);</span>
+</span><span class="line">    <span class="nx">context</span><span class="p">.</span><span class="nx">fillStyle</span> <span class="o">=</span> <span class="s2">&quot;#000000&quot;</span><span class="p">;</span>
+</span><span class="line">    <span class="nx">context</span><span class="p">.</span><span class="nx">fillRect</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="nx">W</span><span class="p">,</span> <span class="nx">H</span><span class="p">);</span>
+</span><span class="line">    <span class="nx">context</span><span class="p">.</span><span class="nx">fillStyle</span> <span class="o">=</span> <span class="s2">&quot;#00ff00&quot;</span><span class="p">;</span>
+</span><span class="line">    <span class="nx">context</span><span class="p">.</span><span class="nx">fillRect</span><span class="p">(</span><span class="nx">x</span><span class="p">,</span> <span class="nx">y</span><span class="p">,</span> <span class="nx">w</span><span class="p">,</span> <span class="nx">h</span><span class="p">);</span>
+</span><span class="line">    <span class="c1">//context.drawImage(img, x, y, w, h);</span>
+</span><span class="line">
+</span><span class="line">    <span class="c1">// test whether we are in a corner</span>
+</span><span class="line">    <span class="k">if</span> <span class="p">(</span><span class="nx">x</span> <span class="o">==</span> <span class="mi">0</span> <span class="o">&amp;&amp;</span> <span class="nx">y</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+</span><span class="line">        <span class="nx">context</span><span class="p">.</span><span class="nx">clearRect</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nx">H</span><span class="p">,</span> <span class="nx">W</span><span class="p">,</span> <span class="mi">200</span><span class="p">);</span>
+</span><span class="line">        <span class="nx">context</span><span class="p">.</span><span class="nx">fillText</span><span class="p">(</span><span class="s2">&quot;TOP LEFT&quot;</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="nx">H</span><span class="o">+</span><span class="mi">100</span><span class="p">);</span>
+</span><span class="line">    <span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="nx">x</span> <span class="o">==</span> <span class="mi">0</span> <span class="o">&amp;&amp;</span> <span class="nx">y</span> <span class="o">+</span> <span class="nx">h</span> <span class="o">==</span> <span class="nx">H</span><span class="p">)</span> <span class="p">{</span>
+</span><span class="line">        <span class="nx">context</span><span class="p">.</span><span class="nx">clearRect</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nx">H</span><span class="p">,</span> <span class="nx">W</span><span class="p">,</span> <span class="mi">200</span><span class="p">);</span>
+</span><span class="line">        <span class="nx">context</span><span class="p">.</span><span class="nx">fillText</span><span class="p">(</span><span class="s2">&quot;BOTTOM LEFT&quot;</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="nx">H</span><span class="o">+</span><span class="mi">100</span><span class="p">);</span>
+</span><span class="line">    <span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="nx">x</span> <span class="o">+</span> <span class="nx">w</span> <span class="o">==</span> <span class="nx">W</span> <span class="o">&amp;&amp;</span> <span class="nx">y</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+</span><span class="line">        <span class="nx">context</span><span class="p">.</span><span class="nx">clearRect</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nx">H</span><span class="p">,</span> <span class="nx">W</span><span class="p">,</span> <span class="mi">200</span><span class="p">);</span>
+</span><span class="line">        <span class="nx">context</span><span class="p">.</span><span class="nx">fillText</span><span class="p">(</span><span class="s2">&quot;TOP RIGHT&quot;</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="nx">H</span><span class="o">+</span><span class="mi">100</span><span class="p">);</span>
+</span><span class="line">    <span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="nx">x</span> <span class="o">+</span> <span class="nx">w</span> <span class="o">==</span> <span class="nx">W</span> <span class="o">&amp;&amp;</span> <span class="nx">y</span> <span class="o">+</span> <span class="nx">h</span> <span class="o">==</span> <span class="nx">H</span><span class="p">)</span> <span class="p">{</span>
+</span><span class="line">        <span class="nx">context</span><span class="p">.</span><span class="nx">clearRect</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nx">H</span><span class="p">,</span> <span class="nx">W</span><span class="p">,</span> <span class="mi">200</span><span class="p">);</span>
+</span><span class="line">        <span class="nx">context</span><span class="p">.</span><span class="nx">fillText</span><span class="p">(</span><span class="s2">&quot;BOTTOM RIGHT&quot;</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="nx">H</span><span class="o">+</span><span class="mi">100</span><span class="p">);</span>
+</span><span class="line">    <span class="p">}</span>
+</span><span class="line"><span class="p">}</span>
+</span><span class="line"><span class="kd">var</span> <span class="nx">ctx</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s2">&quot;c&quot;</span><span class="p">).</span><span class="nx">getContext</span><span class="p">(</span><span class="s2">&quot;2d&quot;</span><span class="p">);</span>
+</span><span class="line"><span class="nx">ctx</span><span class="p">.</span><span class="nx">canvas</span><span class="p">.</span><span class="nx">width</span> <span class="o">=</span> <span class="nx">W</span><span class="p">;</span>
+</span><span class="line"><span class="nx">ctx</span><span class="p">.</span><span class="nx">canvas</span><span class="p">.</span><span class="nx">height</span> <span class="o">=</span> <span class="nx">H</span><span class="o">+</span><span class="mi">200</span><span class="p">;</span>
+</span><span class="line"><span class="nx">ctx</span><span class="p">.</span><span class="nx">font</span> <span class="o">=</span> <span class="s1">&#39;italic 20pt Calibri&#39;</span><span class="p">;</span>
+</span><span class="line"><span class="c1">//var img=document.createElement(&#39;image&#39;);</span>
+</span><span class="line"><span class="c1">//img.src=&#39;http://www.otakia.com/wp-content/uploads/V_1/article_3565/7388.jpg&#39;;</span>
+</span><span class="line">
+</span><span class="line">
+</span><span class="line"><span class="nx">animate</span><span class="p">();</span>
+</span><span class="line"><span class="o">&lt;</span><span class="err">/script&gt;</span>
+</span></code></pre></td></tr></table></div></figure></notextile></div>
+
+</div>
+
+
+  <footer>
+    <p class="meta">
+      
+  
+
+<span class="byline author vcard">Posted by <span class="fn">Bill Green</span></span>
+
+      
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-09-30T01:25:00-07:00" pubdate data-updated="true">Sep 30<span>th</span>, 2013</time>
+      
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  <a href="//twitter.com/share" class="twitter-share-button" data-url="http://prgreen.github.io/blog/2013/09/30/the-bouncing-dvd-logo-explained/" data-via="" data-counturl="http://prgreen.github.io/blog/2013/09/30/the-bouncing-dvd-logo-explained/" >Tweet</a>
+  
+  
+  
+</div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/blog/2013/09/26/video-games-that-help-you-do-your-job-better/" title="Previous Post: Video games that help you do your job better">&laquo; Video games that help you do your job better</a>
+      
+      
+    </p>
+  </footer>
+</article>
+
+  <section>
+    <h1>Comments</h1>
+    <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+  </section>
+
+</div>
+
+<aside class="sidebar">
+  
+    <section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2013/09/30/the-bouncing-dvd-logo-explained/">The bouncing DVD logo explained</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2013/09/26/video-games-that-help-you-do-your-job-better/">Video games that help you do your job better</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2013/09/20/node-dot-js-socket-dot-io-jquery-ntwitter-node-cron/">Node.js, socket.io, jQuery, ntwitter, node-cron</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2013/09/13/twitter-use-cases-are-infinite/">Twitter use cases are infinite</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2013/09/13/vine-is-the-new-haiku/">Vine is the new haiku</a>
+      </li>
+    
+  </ul>
+</section>
+
+
+
+
+
+  
+</aside>
+
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2013 - Bill Green -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+</footer>
+  
+
+<script type="text/javascript">
+      var disqus_shortname = 'prgreenblog';
+      
+        
+        // var disqus_developer = 1;
+        var disqus_identifier = 'http://prgreen.github.io/blog/2013/09/30/the-bouncing-dvd-logo-explained/';
+        var disqus_url = 'http://prgreen.github.io/blog/2013/09/30/the-bouncing-dvd-logo-explained/';
+        var disqus_script = 'embed.js';
+      
+    (function () {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = 'http://' + disqus_shortname + '.disqus.com/' + disqus_script;
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+
+
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = '//platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+
+</body>
+<!-- mathjax config similar to math.stackexchange -->
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  jax: ["input/TeX", "output/HTML-CSS"],
+  tex2jax: {
+    inlineMath: [ ['$', '$'] ],
+    displayMath: [ ['$$', '$$']],
+    processEscapes: true,
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+  },
+  messageStyle: "none",
+  "HTML-CSS": { preferredFont: "TeX", availableFonts: ["STIX","TeX"] }
+});
+</script>
+<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML" type="text/javascript"></script>
+
+</html>
