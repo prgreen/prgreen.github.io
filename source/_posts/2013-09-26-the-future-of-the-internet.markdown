@@ -31,6 +31,8 @@ where do you make your money when you're a pure player
 
 facebook twitter introduction of ads will kill them
 
+## New uses with better bandwidth
+
 ## The Internet as a virtual market place, the only viable future
 
 give people what they want

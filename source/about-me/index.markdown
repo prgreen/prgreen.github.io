@@ -7,7 +7,7 @@ sharing: false
 footer: false
 ---
 
-_**Hi. If you're a tech start-up in San Francisco and would like to hire me, this page gives in-depth answers to a lot of common interview questions. You probably want to check my [resume](/resume) first. I'll be adding more and more projects to [my GitHub](https://github.com/prgreen) in the next few days (coming soon).**_
+_**Hi. If you're a tech start-up in San Francisco and would like to hire me, this page gives in-depth answers to a lot of common interview questions. You probably want to check [my resume](/resume) first. I'll be adding more and more projects to [my GitHub](https://github.com/prgreen) in the next few days (coming soon).**_
 
 For now, all inquiries should go to **guillaume.rene@gmail.com**
 
