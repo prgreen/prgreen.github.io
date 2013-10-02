@@ -12,7 +12,7 @@ Observing the real world you can notice this trend:
 
 - People in companies preferring to communicate via a collaborative textual chat, rather than speaking, sometimes with people a few feet away.
 
-- Young people who have no idea how to express themselves with words, people interviewed by television stumbling constantly for words, etc. ; when in the good old times, it seems people were generaly more articulate and confident speakers. 
+- Young people who have no idea how to express themselves with words, people interviewed by television stumbling constantly for words, etc. ; when in the good old times, it seems people were generally more articulate and confident speakers. 
 
 People don't like to speak anymore? We can try to understand the reasons why.
 
@@ -32,7 +32,7 @@ People don't like to speak anymore? We can try to understand the reasons why.
 
 - You might have to repeat yourself a lot to make sure all people hear/understand you well, especially on the phone.
 
-- Feeling ignored while talking is the worst feeling. Feeling ignored while texting is a more subdued form of reject.
+- Feeling ignored while talking is the worst feeling. Feeling ignored while texting is a more subdued form of rejection.
 
 In conclusion, it's possible to argue that trying not to speak too much is an optimization, a way towards a better attention/information ratio.
 

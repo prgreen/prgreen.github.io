@@ -7,7 +7,7 @@ sharing: false
 footer: false
 ---
 
-_**Hi. If you're a tech start-up in San Francisco and would like to hire me, this page gives in-depth answers to a lot of common interview questions. You probably want to check [my resume](/resume) first. I'll be adding more and more projects to [my GitHub](https://github.com/prgreen) in the next few days (coming soon).**_
+_**Hi. If you're a tech startup in San Francisco and would like to hire me, this page gives in-depth answers to a lot of common interview questions. You probably want to check [my resume](/resume) first. I'll be adding more and more projects to [my GitHub](https://github.com/prgreen) in the next few days (coming soon).**_
 
 For now, all inquiries should go to **guillaume.rene@gmail.com**
 
@@ -17,11 +17,11 @@ For now, all inquiries should go to **guillaume.rene@gmail.com**
 
 You can call me **Bill**. I was born near Chicago, IL, then raised in Paris, France for most of my life. I have dual citizenship (**American/French**).
 
-I'm a 25 year-old **Software Engineer** living near Paris, currently looking to move to **San Francisco (Sep/Oct 2013)** to join a **start-up** full-time. 
+I'm a 25 year-old **Software Engineer** living near Paris, currently looking to move to **San Francisco (Oct 2013)** to join a **startup** full-time. 
 
 I have a **strong all-around academic background** (Master of Science and Engineering from a top Engineering School in France, with a specialization in Computer Science ; this means I'm good at math) associated with a **true passion for programming** (this means I'm a hacker since young age).
 
-I have **significant prior work experience in web start-ups** in Paris, designing or improving collaborative Facebook-like web platforms used to connect dozens of international French companies with ~30,000 students from top business or engineering schools. 
+I have **significant prior work experience in web startups** in Paris, designing or improving collaborative Facebook-like web platforms used to connect dozens of international French companies with ~30,000 students from top business or engineering schools. 
 
 I also created various temporary websites or web services for specific social events, in direct collaboration with French national television (France 5, "La semaine pour l'emploi"), a trivia Facebook App for Rouen Business School ("Le défi des prépas") with scholarship prizes, and a lot of python hacks.  
 
@@ -80,7 +80,7 @@ Perhaps most importantly I'm **passionate** about what I do. I don't think it's 
 
 ## OK, enough with the neat corporate bullshit, what are some qualities that make you stand out?
 
-Although I do like brainy activities, people are generally pleased (or even surprised) to realize than I'm in fact **uncomplicated, calm, genuine, tolerant and at the end of the day, always supportive, attentive to everyone's need, ready to compromise, a great listener, and capable of defusing any tenseness in social situations**. Which is arguably good when you work in a team, especially in a start-up environment.
+Although I do like brainy activities, people are generally pleased (or even surprised) to realize than I'm in fact **uncomplicated, calm, genuine, tolerant and at the end of the day, always supportive, attentive to everyone's need, ready to compromise, a great listener, and capable of defusing any tenseness in social situations**. Which is arguably good when you work in a team, especially in a startup environment.
 
 Even though I might not be the best at first impressions (all these years out of the U.S. have made my English really "stiff", and if you have ADHD or are in a hurry I probably already failed spectacularly in the conciseness department), I'm the kind of person that, **the more you really know about me, the more you like me** (is it proper grammar though?).
 
@@ -102,7 +102,7 @@ I **never give up**, I'm never completely satisfied (this is my French side?), w
 
 **I'm always available**. People are not afraid to come interrupt me and talk to me about some bug or technical problem they encountered that I can fix.
 
-**I'm always honest and true**. I have a nearly pathological fear of lying. I will say nothing rather than say something I know is untrue. This proves essential in a start-up world where everyone bounces (sometimes) stupid ideas off each other and I'm apparently the only one capable of telling the truth about it (in the most respectful way possible, of course).
+**I'm always honest and true**. I have a nearly pathological fear of lying. I will say nothing rather than say something I know is untrue. This proves essential in a startup world where everyone bounces (sometimes) stupid ideas off each other and I'm apparently the only one capable of telling the truth about it (in the most respectful way possible, of course).
 
 **I don't care too much about social status or hierarchy**. I'll be happy in a mostly horizontal society. I give the same respect and attention to everyone. I can have meaningful conversations with "important" people, without being paralyzed. I'm not easily manipulated.
 
@@ -197,9 +197,9 @@ Culturally, you may worry about the cultural implications of me having lived mos
 
 When everyone has high levels of technical proficiency, I think it's not so much about culture or education, more about personality traits and general attitude.
 
-At my last job I was trusted with hiring a new CTO for a 10-15 persons start-up, preparing interviews and stuff, and it made me realize that the real point is: if you have to choose between someone with 100% technical proficiency but 0 ability to work in a team and a depressing or angry attitude, and someone with 80% technical proficiency and some sort of charisma or assertiveness, the choice is immediately obvious to everyone, technical *and* non-technical.
+At my last job I was trusted with hiring a new CTO for a 10-15 persons startup, preparing interviews and stuff, and it made me realize that the real point is: if you have to choose between someone with 100% technical proficiency but 0 ability to work in a team and a depressing or angry attitude, and someone with 80% technical proficiency and some sort of charisma or assertiveness, the choice is immediately obvious to everyone, technical *and* non-technical.
 
-So my answer would be: **I'm already in the right state of mind for the start-up world**.
+So my answer would be: **I'm already in the right state of mind for the startup world**.
 
 I would even go further and argue that uniformity in culture might be undesirable. Most progress is made by breaking the rules, and a French person (or person with a foreign culture really) is naturally more likely to break or ignore social conventions and cultural determinisms, to devise more practical solutions.
 

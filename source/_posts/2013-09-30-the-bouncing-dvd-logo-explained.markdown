@@ -6,7 +6,7 @@ comments: true
 categories: Math 
 ---
 
-Many people seem to experience great satisfaction watching their DVD player screensaver on their TV, looking forward to the moment where the logo hits a corner perfectly.
+Many people seem to experience great satisfaction watching their DVD player screensaver on their TV, looking forward to the moment when the logo hits a corner perfectly.
 
 I don't judge, because it's actually fascinating, from a mathematical point of view.
 
@@ -58,12 +58,12 @@ We discover the following fascinating properties:
 > The **condition for corners to be reached** is
 
 $$
-|x-y| \equiv 0 \mod gcd(W-w, H-h)
+|x-y| \equiv 0 \mod \gcd(W-w, H-h)
 $$
 
 > When this condition is not met, no corner will be hit.
 
-The corners hit **can be determined in advance**. The following Javascript code does it.
+The corners hit **can be determined in advance**. The following Javascript code does it (once provided with lcm and gcd definitions).
 
 L = Left 
 R = Right 
@@ -104,7 +104,8 @@ if (Math.abs(x-y) % gcd(W0, H0) == 0) {
 }
 ```
 
-For programmers out there, I made a simple HTML5 Canvas demo (might not work on some browsers) that you can integrate in an html file. If you're patient it will eventually hit a corner after a few minutes, then another one, then the same again, indefinitely.
+For programmers out there, I made a simple HTML5 Canvas demo (might not work on some browsers) that you can integrate in an html file. If you're patient it will eventually hit a corner after a few minutes, then another one, then the same again, indefinitely. You can play with the variables, check the Firebug console for results, or replace the bouncing rectangle with a proper DVD logo.
+
 
 ```javascript dvdlogo.html
 <canvas id="c">
