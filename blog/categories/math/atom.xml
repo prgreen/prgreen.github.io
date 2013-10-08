@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Math | Bill Green]]></title>
   <link href="http://prgreen.github.io/blog/categories/math/atom.xml" rel="self"/>
   <link href="http://prgreen.github.io/"/>
-  <updated>2013-10-02T08:36:54-07:00</updated>
+  <updated>2013-10-08T07:43:07-07:00</updated>
   <id>http://prgreen.github.io/</id>
   <author>
     <name><![CDATA[Bill Green]]></name>
@@ -12,6 +12,97 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Simple problem]]></title>
+    <link href="http://prgreen.github.io/blog/2013/10/08/simple-problem/"/>
+    <updated>2013-10-08T06:28:00-07:00</updated>
+    <id>http://prgreen.github.io/blog/2013/10/08/simple-problem</id>
+    <content type="html"><![CDATA[<p>You have a list of N real numbers, x1 to xN. You decide you want to sum the products of the i first terms, for i from 1 to n. Let’s call this operation <strong>multadd</strong>.</p>
+
+<script type="math/tex; mode=display">
+multadd(x_{1}, ..., x_{N}) = \sum_{i=1}^{N} ( \prod_{j=1}^{i} x_{j} )
+</script>
+
+<p>A simple example with the following list L = [1, 5, 3]</p>
+
+<p><code>
+multadd(L) = 1 + 1 * 5 + 1 * 5 * 3 = 21
+</code></p>
+
+<p>One thing we can notice right away: the result depends on how we order the numbers in the list.</p>
+
+<blockquote>
+  <p>How to order the numbers in the list so that the result is maximized?</p>
+</blockquote>
+
+<h2 id="hard-solution">Hard solution</h2>
+
+<p>If all numbers are positive, the answer is simply to order them in descending order. But remember that any number can be negative, or 0.</p>
+
+<p>The naive algorithm will check every possible permutation, and display the maximum result and one way to accomplish it. Here’s a working example in Python:</p>
+
+<p>``` python First attempt O(N!)
+import itertools
+from operator import mul</p>
+
+<p>def multadd(L):
+  “"”Sum of the multiplied i first elements, for i from 1 to N”””
+  return sum([reduce(mul,L[:i]) for i in range(1,len(L)+1)])</p>
+
+<p>def multaddmax(L):
+  “"”Find the maximizing order”””
+  tempmax = float(“-inf”)
+  for p in itertools.permutations(L):
+    temp = multadd(p)
+    if temp &gt; tempmax:
+      tempmax = temp
+      result = p
+  return tempmax, result
+```</p>
+
+<p>The complexity is too high for this function to be applied to lists with lengths over ten elements, but at least we’re sure we have the right answer.</p>
+
+<p>Now it’s easy to realize the problem is potentially a lot weirder and more complicated that we initially thought, with the addition of negative numbers:</p>
+
+<p>```
+print multaddmax([-5, -4, -3, -2, -1, -10, -10, -0.9, -0.3, -0.1])</p>
+
+<p>(11320.0, (-4, -5, -3, -10, -2, -10, -0.3, -1, -0.1, -0.9))
+```</p>
+
+<p>Difficult to see a simple pattern that would help us towards a more efficient solution. Although we can notice a few interesting occurrences: negative numbers usually end up being “paired” together, higher value first, and ordered such that they go further and further from the median value.</p>
+
+<p>```
+print multaddmax([-8, -7, -6, -5, -4, -3, -2, -1])</p>
+
+<p>(39916, (-4, -5, -3, -6, -2, -8, -1, -7))
+```</p>
+
+<p>Zeros introduce yet another difficulty, altough we can determine for sure that they will always end up grouped to the right:</p>
+
+<p>```
+print multaddmax([-4, -3, -2, -1, 0, 0, 2, 4, 6])</p>
+
+<p>(1894, (-2, -4, -1, -3, 6, 4, 2, 0, 0))
+```</p>
+
+<p>With or without an isolated negative number that will therefore have no impact in the result anymore:</p>
+
+<p>```
+print multaddmax([-4, -3, -2, 1, 0, 0, 2, 4, 6])</p>
+
+<p>(1521, (-3, -4, 6, 4, 2, 1, 0, -2, 0))
+```</p>
+
+<h2 id="a-definitive-algorithm">A definitive algorithm?</h2>
+
+<p>It seems that a more efficient algorithm can be found.</p>
+
+<p><em>To be continued…</em></p>
+
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[The bouncing DVD logo explained]]></title>

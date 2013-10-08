@@ -4,7 +4,7 @@
   <title><![CDATA[Bill Green]]></title>
   <link href="http://prgreen.github.io/atom.xml" rel="self"/>
   <link href="http://prgreen.github.io/"/>
-  <updated>2013-10-02T08:36:54-07:00</updated>
+  <updated>2013-10-08T07:43:07-07:00</updated>
   <id>http://prgreen.github.io/</id>
   <author>
     <name><![CDATA[Bill Green]]></name>
@@ -12,6 +12,119 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Simple problem]]></title>
+    <link href="http://prgreen.github.io/blog/2013/10/08/simple-problem/"/>
+    <updated>2013-10-08T06:28:00-07:00</updated>
+    <id>http://prgreen.github.io/blog/2013/10/08/simple-problem</id>
+    <content type="html"><![CDATA[<p>You have a list of N real numbers, x1 to xN. You decide you want to sum the products of the i first terms, for i from 1 to n. Let’s call this operation <strong>multadd</strong>.</p>
+
+<script type="math/tex; mode=display">
+multadd(x_{1}, ..., x_{N}) = \sum_{i=1}^{N} ( \prod_{j=1}^{i} x_{j} )
+</script>
+
+<p>A simple example with the following list L = [1, 5, 3]</p>
+
+<div class="bogus-wrapper"><notextile><figure class="code"><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
+</pre></td><td class="code"><pre><code class=""><span class="line">multadd(L) = 1 + 1 * 5 + 1 * 5 * 3 = 21</span></code></pre></td></tr></table></div></figure></notextile></div>
+
+<p>One thing we can notice right away: the result depends on how we order the numbers in the list.</p>
+
+<blockquote>
+  <p>How to order the numbers in the list so that the result is maximized?</p>
+</blockquote>
+
+<h2 id="hard-solution">Hard solution</h2>
+
+<p>If all numbers are positive, the answer is simply to order them in descending order. But remember that any number can be negative, or 0.</p>
+
+<p>The naive algorithm will check every possible permutation, and display the maximum result and one way to accomplish it. Here’s a working example in Python:</p>
+
+<div class="bogus-wrapper"><notextile><figure class="code"><figcaption><span>First attempt O(N!)</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
+<span class="line-number">2</span>
+<span class="line-number">3</span>
+<span class="line-number">4</span>
+<span class="line-number">5</span>
+<span class="line-number">6</span>
+<span class="line-number">7</span>
+<span class="line-number">8</span>
+<span class="line-number">9</span>
+<span class="line-number">10</span>
+<span class="line-number">11</span>
+<span class="line-number">12</span>
+<span class="line-number">13</span>
+<span class="line-number">14</span>
+<span class="line-number">15</span>
+<span class="line-number">16</span>
+</pre></td><td class="code"><pre><code class="python"><span class="line"><span class="kn">import</span> <span class="nn">itertools</span>
+</span><span class="line"><span class="kn">from</span> <span class="nn">operator</span> <span class="kn">import</span> <span class="n">mul</span>
+</span><span class="line">
+</span><span class="line"><span class="k">def</span> <span class="nf">multadd</span><span class="p">(</span><span class="n">L</span><span class="p">):</span>
+</span><span class="line">  <span class="sd">&quot;&quot;&quot;Sum of the multiplied i first elements, for i from 1 to N&quot;&quot;&quot;</span>
+</span><span class="line">  <span class="k">return</span> <span class="nb">sum</span><span class="p">([</span><span class="nb">reduce</span><span class="p">(</span><span class="n">mul</span><span class="p">,</span><span class="n">L</span><span class="p">[:</span><span class="n">i</span><span class="p">])</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="nb">len</span><span class="p">(</span><span class="n">L</span><span class="p">)</span><span class="o">+</span><span class="mi">1</span><span class="p">)])</span>
+</span><span class="line">
+</span><span class="line"><span class="k">def</span> <span class="nf">multaddmax</span><span class="p">(</span><span class="n">L</span><span class="p">):</span>
+</span><span class="line">  <span class="sd">&quot;&quot;&quot;Find the maximizing order&quot;&quot;&quot;</span>
+</span><span class="line">  <span class="n">tempmax</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="s">&quot;-inf&quot;</span><span class="p">)</span>
+</span><span class="line">  <span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">itertools</span><span class="o">.</span><span class="n">permutations</span><span class="p">(</span><span class="n">L</span><span class="p">):</span>
+</span><span class="line">    <span class="n">temp</span> <span class="o">=</span> <span class="n">multadd</span><span class="p">(</span><span class="n">p</span><span class="p">)</span>
+</span><span class="line">    <span class="k">if</span> <span class="n">temp</span> <span class="o">&gt;</span> <span class="n">tempmax</span><span class="p">:</span>
+</span><span class="line">      <span class="n">tempmax</span> <span class="o">=</span> <span class="n">temp</span>
+</span><span class="line">      <span class="n">result</span> <span class="o">=</span> <span class="n">p</span>
+</span><span class="line">  <span class="k">return</span> <span class="n">tempmax</span><span class="p">,</span> <span class="n">result</span>
+</span></code></pre></td></tr></table></div></figure></notextile></div>
+
+<p>The complexity is too high for this function to be applied to lists with lengths over ten elements, but at least we’re sure we have the right answer.</p>
+
+<p>Now it’s easy to realize the problem is potentially a lot weirder and more complicated that we initially thought, with the addition of negative numbers:</p>
+
+<div class="bogus-wrapper"><notextile><figure class="code"><figcaption><span>First attempt O(N!)</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
+<span class="line-number">2</span>
+<span class="line-number">3</span>
+</pre></td><td class="code"><pre><code class="python"><span class="line"><span class="k">print</span> <span class="n">multaddmax</span><span class="p">([</span><span class="o">-</span><span class="mi">5</span><span class="p">,</span> <span class="o">-</span><span class="mi">4</span><span class="p">,</span> <span class="o">-</span><span class="mi">3</span><span class="p">,</span> <span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">10</span><span class="p">,</span> <span class="o">-</span><span class="mi">10</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.9</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.3</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.1</span><span class="p">])</span>
+</span><span class="line">
+</span><span class="line"><span class="p">(</span><span class="mf">11320.0</span><span class="p">,</span> <span class="p">(</span><span class="o">-</span><span class="mi">4</span><span class="p">,</span> <span class="o">-</span><span class="mi">5</span><span class="p">,</span> <span class="o">-</span><span class="mi">3</span><span class="p">,</span> <span class="o">-</span><span class="mi">10</span><span class="p">,</span> <span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="o">-</span><span class="mi">10</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.3</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.1</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.9</span><span class="p">))</span>
+</span></code></pre></td></tr></table></div></figure></notextile></div>
+
+<p>Difficult to see a simple pattern that would help us towards a more efficient solution. Although we can notice a few interesting occurrences: negative numbers usually end up being “paired” together, higher value first, and ordered such that they go further and further from the median value.</p>
+
+<div class="bogus-wrapper"><notextile><figure class="code"><figcaption><span>First attempt O(N!)</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
+<span class="line-number">2</span>
+<span class="line-number">3</span>
+</pre></td><td class="code"><pre><code class="python"><span class="line"><span class="k">print</span> <span class="n">multaddmax</span><span class="p">([</span><span class="o">-</span><span class="mi">8</span><span class="p">,</span> <span class="o">-</span><span class="mi">7</span><span class="p">,</span> <span class="o">-</span><span class="mi">6</span><span class="p">,</span> <span class="o">-</span><span class="mi">5</span><span class="p">,</span> <span class="o">-</span><span class="mi">4</span><span class="p">,</span> <span class="o">-</span><span class="mi">3</span><span class="p">,</span> <span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">])</span>
+</span><span class="line">
+</span><span class="line"><span class="p">(</span><span class="mi">39916</span><span class="p">,</span> <span class="p">(</span><span class="o">-</span><span class="mi">4</span><span class="p">,</span> <span class="o">-</span><span class="mi">5</span><span class="p">,</span> <span class="o">-</span><span class="mi">3</span><span class="p">,</span> <span class="o">-</span><span class="mi">6</span><span class="p">,</span> <span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="o">-</span><span class="mi">8</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">7</span><span class="p">))</span>
+</span></code></pre></td></tr></table></div></figure></notextile></div>
+
+<p>Zeros introduce yet another difficulty, altough we can determine for sure that they will always end up grouped to the right:</p>
+
+<div class="bogus-wrapper"><notextile><figure class="code"><figcaption><span>First attempt O(N!)</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
+<span class="line-number">2</span>
+<span class="line-number">3</span>
+</pre></td><td class="code"><pre><code class="python"><span class="line"><span class="k">print</span> <span class="n">multaddmax</span><span class="p">([</span><span class="o">-</span><span class="mi">4</span><span class="p">,</span> <span class="o">-</span><span class="mi">3</span><span class="p">,</span> <span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">6</span><span class="p">])</span>
+</span><span class="line">
+</span><span class="line"><span class="p">(</span><span class="mi">1894</span><span class="p">,</span> <span class="p">(</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="o">-</span><span class="mi">4</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">3</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">))</span>
+</span></code></pre></td></tr></table></div></figure></notextile></div>
+
+<p>With or without an isolated negative number that will therefore have no impact in the result anymore:</p>
+
+<div class="bogus-wrapper"><notextile><figure class="code"><figcaption><span>First attempt O(N!)</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
+<span class="line-number">2</span>
+<span class="line-number">3</span>
+</pre></td><td class="code"><pre><code class="python"><span class="line"><span class="k">print</span> <span class="n">multaddmax</span><span class="p">([</span><span class="o">-</span><span class="mi">4</span><span class="p">,</span> <span class="o">-</span><span class="mi">3</span><span class="p">,</span> <span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">6</span><span class="p">])</span>
+</span><span class="line">
+</span><span class="line"><span class="p">(</span><span class="mi">1521</span><span class="p">,</span> <span class="p">(</span><span class="o">-</span><span class="mi">3</span><span class="p">,</span> <span class="o">-</span><span class="mi">4</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">))</span>
+</span></code></pre></td></tr></table></div></figure></notextile></div>
+
+<h2 id="a-definitive-algorithm">A definitive algorithm?</h2>
+
+<p>It seems that a more efficient algorithm can be found.</p>
+
+<p><em>To be continued…</em></p>
+
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[The bouncing DVD logo explained]]></title>
