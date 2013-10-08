@@ -7,9 +7,10 @@ sharing: true
 footer: true
 ---
 
-[DOWNLOAD the PDF VERSION here](/resume/GUILLAUME_RENE_RESUME.pdf)
+[DOWNLOAD the printable PDF VERSION here](/resume/GUILLAUME_RENE_RESUME.pdf)
 
 # Guillaume René
+
 # Software Engineer
 
 e-mail: **guillaume.rene@gmail.com**
