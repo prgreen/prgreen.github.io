@@ -15,7 +15,7 @@ footer: true
 
 e-mail: **guillaume.rene@gmail.com**
 
-phone: 011 33 610738851
+phone: (415)696-9231
 
 ## Education
 

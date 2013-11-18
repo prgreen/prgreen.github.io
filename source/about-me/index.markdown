@@ -15,9 +15,9 @@ For now, all inquiries should go to **guillaume.rene@gmail.com**
 
 ## Who are you?
 
-You can call me **Bill**. I was born near Chicago, IL, then raised in Paris, France for most of my life. I have dual citizenship (**American/French**).
+You can call me **William**. I was born near Chicago, IL, then raised in Paris, France for most of my life. I have dual citizenship (**American/French**).
 
-I'm a 25 year-old **Software Engineer** living near Paris, currently looking to move to **San Francisco (Oct 2013)** to join a **startup** full-time. 
+I'm a 25 year-old **Software Engineer** living in **San Francisco (Nov 2013)** looking to join a **tech startup** full-time. 
 
 I have a **strong all-around academic background** (Master of Science and Engineering from a top Engineering School in France, with a specialization in Computer Science ; this means I'm good at math) associated with a **true passion for programming** (this means I'm a hacker since young age).
 
